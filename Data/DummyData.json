@@ -1,0 +1,22 @@
+{
+    "courses":[
+    {
+                    "id": 1,
+                    "Name": "HTML",
+                    "Price": 140,
+                    "img": "http://localhost:3000/assets/HTML.png"
+                },
+                {
+                    "id": 2,
+                    "Name": "CSS",
+                    "Price": 240,
+                    "img": "http://localhost:3000/assets/CSS.png"
+                },
+                {
+                    "id": 3,
+                    "Name": "Javascript",
+                    "Price": 149,
+                    "img": "http://localhost:3000/assets/Javascript.png"
+                }
+                ]
+            }

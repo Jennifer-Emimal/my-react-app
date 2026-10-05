@@ -1,0 +1,14 @@
+.card{
+background-color: aquamarine;
+max-width: 200px;
+border: 1px solid black;
+border-radius: 5px;
+text-align:center;
+font-family: sans-serif;
+display: inline-block;
+padding: 2px;
+margin:10px;
+}
+.card img{
+    width:200px;
+}
