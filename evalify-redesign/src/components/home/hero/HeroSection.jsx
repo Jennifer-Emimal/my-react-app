@@ -1,411 +1,268 @@
 import {
     Box,
-    Button,
-    Paper,
-    Stack,
+    Container,
     Typography,
 } from "@mui/material";
 
-import {
-    PlayArrow,
-    ArrowForward,
-} from "@mui/icons-material";
-import heroBg from "../../../assets/hero.png";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+
+import heroImage from "../../../assets/hero.png";
+
+import SectionLabel from "../../common/SectionLabel";
+import ActionButton from "../../common/ActionButton";
+import LogoSquare from "../../common/LogoSquare";
+import NavButton from "./NavButton";
 
 function HeroSection() {
     return (
         <Box
+            id="home"
+            component="section"
             sx={{
+                backgroundColor: "background.hero",
+                color: "text.hero",
                 minHeight: "100vh",
-                width: "100%",
-                position: "relative",
-                overflow: "hidden",
-
-                backgroundImage: `url(${heroBg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
+                
             }}
         >
+            {/* NAVBAR */}
 
-            {/* Main Container */}
-
-            <Box
-                sx={{
-                    position: "relative",
-                    zIndex: 2,
-                    width: "100%",
-                    maxWidth: "1400px",
-                    minHeight: "100vh",
-                    margin: "0 auto",
-                    padding: {
-                        xs: 2,
-                        sm: 3,
-                        md: 4,
-                    },
-                    display: "flex",
-                    flexDirection: "column",
-                }}
-            >
-
-                {/* ================= NAVBAR ================= */}
-
-                <Paper
-                    elevation={0}
+            <Container maxWidth="xl">
+                <Box
                     sx={{
-                        minHeight: 58,
-                        borderRadius: "18px",
-                        backgroundColor:
-                            "rgba(255,255,255,0.16)",
-                        border:
-                            "1px solid rgba(255,255,255,0.28)",
-                        backdropFilter: "blur(18px)",
+                        height: "80px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
-                        padding: "0 10px 0 18px",
                     }}
                 >
+                    {/* LOGO */}
 
-                    {/* Logo */}
-
-                    <Stack
-                        direction="row"
-                        alignItems="center"
-                        spacing={1}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1,
+                        }}
                     >
                         <Box
                             sx={{
-                                width: 28,
-                                height: 28,
-                                borderRadius: "50%",
-                                backgroundColor: "#8B72F5",
-                            }}
-                        />
-                        <Typography
-                            sx={{
-                                color: "white",
-                                fontSize: "1.1rem",
-                                fontWeight: 700,
+                                display: "grid",
+                                gridTemplateColumns:
+                                    "repeat(2, 12px)",
+                                gap: "3px",
                             }}
                         >
-                            Evalify
+                            <LogoSquare color="#FF9B6A" />
+                            <LogoSquare color="#F6B85F" />
+                            <LogoSquare color="#6F58D9" />
+                            <LogoSquare color="#75B8E8" />
+                        </Box>
+
+                        <Typography
+                            sx={{
+                                fontSize: "1.2rem",
+                                fontWeight: 700,
+                                letterSpacing: "-0.03em",
+                            }}
+                        >
+                            evalify
                         </Typography>
-                    </Stack>
+                    </Box>
 
-                    {/* Navigation */}
+                    {/* NAVIGATION */}
 
-                    <Stack
-                        direction="row"
-                        spacing={1}
+                    <Box
                         sx={{
                             display: {
                                 xs: "none",
                                 md: "flex",
                             },
+                            alignItems: "center",
+                            gap: 3,
                         }}
                     >
-                        <Button
-                            sx={{
-                                color: "rgba(255,255,255,0.75)",
-                                textTransform: "none",
-                                fontSize: "0.85rem",
-                                borderRadius: "10px",
-
-                                "&:hover": {
-                                    color: "#FFFFFF",
-                                    backgroundColor: "rgba(108,76,241,0.55)",
-                                    boxShadow: "0 4px 15px rgba(108,76,241,0.35)",
-                                },
-                            }}
-                        >
+                        <NavButton href="#platform">
                             Platform
-                        </Button>
+                        </NavButton>
 
-                        <Button
-                            sx={{
-                                color: "rgba(255,255,255,0.75)",
-                                textTransform: "none",
-                                fontSize: "0.85rem",
-                                borderRadius: "10px",
+                        <NavButton href="#how-it-works">
+                            How it works
+                        </NavButton>
 
-                                "&:hover": {
-                                    color: "#FFFFFF",
-                                    backgroundColor: "rgba(108,76,241,0.55)",
-                                    boxShadow: "0 4px 15px rgba(108,76,241,0.35)",
-                                },
-                            }}
-                        >
-                            Solutions
-                        </Button>
+                        <NavButton href="#customer-stories">
+                            Customer stories
+                        </NavButton>
 
-                        <Button
-                            sx={{
-                                color: "rgba(255,255,255,0.75)",
-                                textTransform: "none",
-                                fontSize: "0.85rem",
-                                borderRadius: "10px",
+                        <NavButton href="#faq">
+                            FAQ
+                        </NavButton>
+                    </Box>
 
-                                "&:hover": {
-                                    color: "#FFFFFF",
-                                    backgroundColor: "rgba(108,76,241,0.55)",
-                                    boxShadow: "0 4px 15px rgba(108,76,241,0.35)",
-                                },
-                            }}
-                        >
-                            Resources
-                        </Button>
-                    </Stack>
-                    {/* Navbar Button */}
+                    {/* NAV CTA */}
 
-                    <Button
-                        variant="contained"
-                        size="small"
-                        endIcon={<ArrowForward />}
+                    <Box
                         sx={{
-                            borderRadius: "20px",
-                            padding: "7px 16px",
-                            backgroundColor: "#5140C7",
-                            textTransform: "none",
+                            display: {
+                                xs: "none",
+                                sm: "flex",
+                            },
+                            alignItems: "center",
+                            gap: 1.5,
                         }}
                     >
-                        Get Started
-                    </Button>
-                </Paper>
+                        <ActionButton href="#home">
+                            Get started
+                        </ActionButton>
 
-                {/* ================= HERO CONTENT ================= */}
+                        <ActionButton href="#login">
+                            Log in
+                        </ActionButton>
+                    </Box>
+                </Box>
+            </Container>
 
+            {/* HERO CONTENT */}
+
+            <Container maxWidth="xl">
                 <Box
                     sx={{
-                        flex: 1,
-                        display: "flex",
+                        minHeight: {
+                            xs: "calc(100vh - 80px)",
+                            md: "calc(100vh - 80px)",
+                        },
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            md: "1fr 1fr",
+                        },
                         alignItems: "center",
-                        position: "relative",
-                        padding: {
-                            xs: "50px 0",
-                            md: "30px 0",
+                        gap: {
+                            xs: 6,
+                            md: 8,
+                        },
+                        py: {
+                            xs: 7,
+                            md: 5,
                         },
                     }}
                 >
+                    {/* LEFT */}
 
-                    {/* LEFT GLASS CARD */}
-
-                    <Paper
-                        elevation={0}
-                        sx={{
-                            position: "relative",
-                            zIndex: 3,
-                            width: {
-                                xs: "100%",
-                                md: "46%",
-                            },
-                            padding: {
-                                xs: 3,
-                                md: 3.5,
-                            },
-                            borderRadius: "18px",
-                            backgroundColor:
-                                "rgba(255,255,255,0.14)",
-                            border:
-                                "1px solid rgba(255,255,255,0.25)",
-                            backdropFilter: "blur(20px)",
-                        }}
-                    >
-
-                        {/* Small Label */}
+                    <Box>
+                        <SectionLabel>
+                            HIRING, WITH MORE SIGNAL
+                        </SectionLabel>
 
                         <Typography
                             sx={{
-                                color:
-                                    "rgba(255,255,255,0.8)",
-                                fontSize: "0.85rem",
-                                marginBottom: 1,
-                            }}
-                        >
-                            AI-Powered Hiring Platform
-                        </Typography>
-
-                        {/* Main Heading */}
-
-                        <Typography
-                            sx={{
-                                color: "#111426",
-                                fontWeight: 800,
                                 fontSize: {
-                                    xs: "2.6rem",
-                                    sm: "3rem",
-                                    md: "3.5rem",
+                                    xs: "3.2rem",
+                                    sm: "4.2rem",
+                                    md: "5.5rem",
                                 },
-                                lineHeight: 1.02,
-                                letterSpacing: "-0.045em",
+                                fontWeight: 500,
+                                lineHeight: 0.92,
+                                letterSpacing: "-0.055em",
+                                maxWidth: 650,
                             }}
                         >
                             Find the
                             <br />
-                            Right People,
+                            right people,
                             <br />
-                            <Box
-                                component="span"
-                                sx={{
-                                    color: "#7B4DFF",
-                                }}
-                            >
-                                Faster.
-                            </Box>
+                            faster.
                         </Typography>
-
-                        {/* Description */}
 
                         <Typography
                             sx={{
-                                color:
-                                    "rgba(17,20,38,0.78)",
-                                fontSize: "0.9rem",
-                                lineHeight: 1.45,
-                                maxWidth: 500,
-                                marginTop: 2,
+                                color: "text.secondary",
+                                maxWidth: 520,
+                                mt: 3,
+                                fontSize: {
+                                    xs: "0.95rem",
+                                    md: "1rem",
+                                },
+                                lineHeight: 1.7,
                             }}
                         >
-                            Conduct AI-driven interviews,
-                            evaluate candidates instantly
-                            and get deep insights — so you
-                            can hire with confidence.
+                            Evalify helps teams build thoughtful,
+                            structured assessments that reveal what
+                            candidates can actually do.
                         </Typography>
 
-                        {/* CTA Buttons */}
+                        {/* ACTIONS */}
 
-                        <Stack
-                            direction={{
-                                xs: "column",
-                                sm: "row",
-                            }}
-                            spacing={1.5}
+                        <Box
                             sx={{
-                                marginTop: 2.5,
+                                display: "flex",
+                                flexWrap: "wrap",
+                                gap: 1.5,
+                                mt: 4,
                             }}
                         >
-                            <Button
-                                variant="contained"
-                                endIcon={
-                                    <ArrowForward />
-                                }
-                                sx={{
-                                    borderRadius: "30px",
-                                    padding: "10px 18px",
-                                    textTransform: "none",
-                                    backgroundColor:
-                                        "#5140C7",
-                                }}
-                            >
-                                Get Started Free
-                            </Button>
-                            <Button
-                                variant="contained"
-                                startIcon={
-                                    <PlayArrow />
-                                }
-                                sx={{
-                                    borderRadius: "30px",
-                                    padding: "10px 18px",
-                                    textTransform: "none",
-                                    color: "#202338",
-                                    backgroundColor:
-                                        "rgba(255,255,255,0.72)",
-                                }}
-                            >
-                                Watch Demo
-                            </Button>
-                        </Stack>
+                            <ActionButton href="#platform">
+                                Get started free
+                            </ActionButton>
 
-                        {/* STATS */}
+                            <ActionButton href="#how-it-works">
+                                See how Evalify works
+                            </ActionButton>
+                        </Box>
 
-                        <Stack
-                            direction="row"
-                            spacing={1.2}
+                        {/* TRUST */}
+
+                        <Box
                             sx={{
-                                marginTop: 2.5,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                                mt: 3,
                             }}
                         >
-                            <StatCard
-                                number="70%"
-                                label="Faster hiring"
+                            <VerifiedUserOutlinedIcon
+                                sx={{
+                                    fontSize: 18,
+                                    color: "accent.green",
+                                }}
                             />
-                            <StatCard
-                                number="4x"
-                                label="More accurate evaluations"
-                            />
-                            <StatCard
-                                number="50+"
-                                label="Skills supported"
-                            />
-                        </Stack>
-                    </Paper>
-                </Box>
 
-                {/* ================= BOTTOM BRAND ================= */}
+                            <Typography
+                                sx={{
+                                    fontSize: "0.7rem",
+                                    color: "text.muted",
+                                }}
+                            >
+                                Built for thoughtful, fairer hiring
+                            </Typography>
+                        </Box>
+                    </Box>
 
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        paddingBottom: 1,
-                    }}
-                >
-                    <Stack
-                        direction="row"
-                        alignItems="center"
-                        spacing={1}
+                    {/* RIGHT IMAGE */}
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
                     >
-                    </Stack>
+                        <Box
+                            component="img"
+                            src={heroImage}
+                            alt="Evalify hiring platform"
+                            sx={{
+                                width: "100%",
+                                maxWidth: 650,
+                                height: "auto",
+                                display: "block",
+                                objectFit: "contain",
+                            }}
+                        />
+                    </Box>
                 </Box>
-            </Box>
+            </Container>
         </Box>
-    );
-}
-
-/* ================= STAT CARD ================= */
-
-function StatCard({ number, label }) {
-    return (
-        <Paper
-            elevation={0}
-            sx={{
-                flex: 1,
-                minWidth: 0,
-                padding: {
-                    xs: 1,
-                    sm: 1.2,
-                },
-                borderRadius: "10px",
-                backgroundColor:
-                    "rgba(255,255,255,0.24)",
-                border:
-                    "1px solid rgba(255,255,255,0.55)",
-            }}
-        >
-            <Typography
-                sx={{
-                    color: "#111426",
-                    fontWeight: 800,
-                    fontSize: {
-                        xs: "1.3rem",
-                        sm: "1.5rem",
-                    },
-                }}
-            >
-                {number}
-            </Typography>
-            <Typography
-                sx={{
-                    color:
-                        "rgba(17,20,38,0.7)",
-                    fontSize: "0.6rem",
-                    lineHeight: 1.2,
-                }}
-            >
-                {label}
-            </Typography>
-        </Paper>
     );
 }
 
