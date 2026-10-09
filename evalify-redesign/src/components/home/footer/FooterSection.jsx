@@ -1,351 +1,199 @@
-import {
-    Box,
-    Button,
-    Container,
-    Stack,
-    Typography,
-} from "@mui/material";
 
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LogoSquare from "../../common/LogoSquare";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import { IconButton } from "@mui/material";
+
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import XIcon from "@mui/icons-material/X";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function FooterSection() {
-    const navigation = [
-        { label: "Platform", href: "#platform" },
-        { label: "Customer stories", href: "#customer-stories" },
-        { label: "FAQ", href: "#faq" },
-        { label: "AI settings", href: "#aiChoices" },
+    const columns = [
+        {
+            title: "Product",
+            links: [
+                { label: "Features", href: "#features" },
+                { label: "Pricing", href: "#pricing" },
+                { label: "Integrations", href: "#features" },
+                { label: "Security", href: "#faq" },
+            ],
+        },
+        {
+            title: "Company",
+            links: [
+                { label: "About", href: "#about" },
+                { label: "Blog", href: "#blog" },
+                { label: "Careers", href: "#careers" },
+                { label: "Contact", href: "#contact" },
+            ],
+        },
+        {
+            title: "Resources",
+            links: [
+                { label: "Help center", href: "#help" },
+                { label: "Documentation", href: "#documentation" },
+                { label: "Guides", href: "#guides" },
+                { label: "Status", href: "#status" },
+            ],
+        },
     ];
 
     return (
         <Box
             component="footer"
             sx={{
-                backgroundColor: "#24213F",
-                color: "#FFFFFF",
+                background: (theme) => theme.gradients.hero,
+                py: { xs: 4, md: 5 },
             }}
         >
-            {/* TOP CTA */}
-
-            <Box
-                sx={{
-                    minHeight: {
-                        xs: "150px",
-                        md: "180px",
-                    },
-                    position: "relative",
-                    overflow: "hidden",
-                    display: "flex",
-                    alignItems: "center",
-                }}
-            >
-                {/* Background circles */}
-
+            <Container maxWidth="xl">
                 <Box
                     sx={{
-                        position: "absolute",
-                        width: 550,
-                        height: 550,
-                        borderRadius: "50%",
-                        border: "1px solid rgba(255,255,255,0.06)",
-                        top: -400,
-                        right: "5%",
-                    }}
-                />
-
-                <Box
-                    sx={{
-                        position: "absolute",
-                        width: 400,
-                        height: 400,
-                        borderRadius: "50%",
-                        border: "1px solid rgba(255,255,255,0.04)",
-                        top: -300,
-                        right: "10%",
-                    }}
-                />
-
-                <Container
-                    maxWidth="xl"
-                    sx={{
-                        position: "relative",
-                        zIndex: 1,
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "1fr 1fr",
+                            md: "1.4fr 1fr 1fr 1fr",
+                        },
+                        columnGap: { xs: 3, md: 6 },
+                        rowGap: 4,
                     }}
                 >
-                   <Box
-    sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: {
-            xs: "flex-start",
-            md: "center",
-        },
-        flexDirection: {
-            xs: "column",
-            md: "row",
-        },
-        gap: 5,
-        pt: { xs: 2, md: 3 },
-        pb: { xs: 2, md: 2 },
-    }}
->
-                        {/* LEFT CONTENT */}
-
-                        <Box>
-                            <Stack
-                                direction="row"
-                                alignItems="center"
-                                spacing={1}
-                                sx={{ mb: 2 }}
-                            >
-                                <Box
-                                    sx={{
-                                        width: 18,
-                                        height: "1px",
-                                        backgroundColor: "#FF8A72",
-                                        transform: "translateY(8px)",
-                                    }}
-                                />
-
-                                <Typography
-                                    sx={{
-                                        fontSize: "0.7rem",
-                                        fontWeight: 700,
-                                        letterSpacing: "0.15em",
-                                        color: "#BCA8FF",
-                                    }}
-                                >
-                                    MAKE THE NEXT HIRE A BETTER ONE
-                                </Typography>
-                            </Stack>
-
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        xs: "3rem",
-                                        sm: "4rem",
-                                        md: "4.2rem",
-                                    },
-                                    lineHeight: 0.9,
-                                    fontWeight: 500,
-                                    letterSpacing: "-0.05em",
-                                }}
-                            >
-                                Better people.
-                            </Typography>
-
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        xs: "3rem",
-                                        sm: "4rem",
-                                        md: "4.2rem",
-                                    },
-                                    lineHeight: 1.5,
-                                    fontFamily: "Georgia, serif",
-                                    fontStyle: "italic",
-                                    color: "#C9B8FF",
-                                    letterSpacing: "-0.04em",
-                                }}
-                            >
-                                Brighter futures.
-                            </Typography>
-                        </Box>
-
-                        {/* BUTTON */}
-
-                        <Box
-                            sx={{
-                                minWidth: {
-                                    xs: "100%",
-                                    md: "250px",
-                                },
-                            }}
-                        >
-                            <Button
-                                fullWidth
-                                variant="contained"
-                                endIcon={<ArrowForwardIcon />}
-                                sx={{
-                                    backgroundColor: "#FFFFFF",
-                                    color: "#5142B8",
-                                    padding: "15px 20px",
-                                    borderRadius: "10px",
-                                    fontWeight: 700,
-                                    textTransform: "none",
-
-                                    "&:hover": {
-                                        backgroundColor: "#F2EEFF",
-                                        transform: "translateY(-2px)",
-                                    },
-                                }}
-                            >
-                                Build a stronger team
-                            </Button>
-
-                            <Typography
-                                sx={{
-                                    mt: 1.5,
-                                    fontSize: "0.7rem",
-                                    color: "rgba(255,255,255,0.6)",
-                                }}
-                            >
-                                Meet the people behind the potential.
-                            </Typography>
-                        </Box>
-                    </Box>
-                </Container>
-            </Box>
-
-            {/* FOOTER NAVIGATION */}
-
-            <Box
-                sx={{
-                    borderTop:
-                        "1px solid rgba(255,255,255,0.06)",
-                }}
-            >
-                <Container maxWidth="xl">
-                    <Box
-                        sx={{
-                            /* KEEP ORIGINAL SIZE */
-                            minHeight: "50px",
-
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-
-                            flexDirection: {
-                                xs: "column",
-                                md: "row",
-                            },
-
-                            /* REDUCED INTERNAL GAP */
-                            gap: 1,
-                            py: 0,
-                        }}
-                    >
-                        {/* LOGO */}
-
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 1,
-                            }}
+                    {/* Brand */}
+                    <Box>
+                        <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={1}
+                            sx={{ mb: 1.5 }}
                         >
                             <Box
                                 sx={{
+                                    width: 25,
+                                    height: 25,
+                                    borderRadius: "6px",
                                     display: "grid",
-                                    gridTemplateColumns:
-                                        "repeat(2, 12px)",
-                                    gap: "3px",
+                                    placeItems: "center",
+                                    background: (theme) =>
+                                        theme.gradients.tealBlue,
+                                    color: "common.white",
+                                    fontSize: "0.9rem",
+                                    fontWeight: 800,
                                 }}
                             >
-                                <LogoSquare color="#FF9B6A" />
-                                <LogoSquare color="#F6B85F" />
-                                <LogoSquare color="#6F58D9" />
-                                <LogoSquare color="#75B8E8" />
+                                ✦
                             </Box>
 
                             <Typography
                                 sx={{
+                                    color: "text.primary",
                                     fontSize: "1.2rem",
-                                    fontWeight: 700,
-                                    letterSpacing: "-0.03em",
-                                    color: "#FFFFFF",
+                                    fontWeight: 800,
+                                    letterSpacing: "-0.04em",
                                 }}
                             >
-                                evalify
+                                Evalify
                             </Typography>
-                        </Box>
-
-                        {/* TAGLINE */}
+                        </Stack>
 
                         <Typography
                             sx={{
-                                fontSize: "0.7rem",
-                                color: "rgba(255,255,255,0.65)",
+                                color: "text.secondary",
+                                fontSize: "0.75rem",
+                                lineHeight: 1.6,
+                                maxWidth: 200,
                             }}
                         >
-                            A little more signal. A lot more human.
+                            AI-powered interviews for modern hiring teams.
                         </Typography>
-
-                        {/* NAVIGATION */}
 
                         <Stack
                             direction="row"
-                            spacing={{
-                                xs: 2,
-                                md: 3,
-                            }}
-                            flexWrap="wrap"
-                            justifyContent="center"
+                            spacing={1}
+                            sx={{ mt: 1.5 }}
                         >
-                            {navigation.map((item) => (
-                                <Button
-                                    key={item.label}
+                            {[
+                                {
+                                    label: "LinkedIn",
+                                    Icon: LinkedInIcon,
+                                    href: "https://www.linkedin.com",
+                                },
+                                {
+                                    label: "X",
+                                    Icon: XIcon,
+                                    href: "https://x.com",
+                                },
+                                {
+                                    label: "GitHub",
+                                    Icon: GitHubIcon,
+                                    href: "https://github.com",
+                                },
+                            ].map(({ label, Icon, href }) => (
+                                <IconButton
+                                    key={label}
                                     component="a"
-                                    href={item.href}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    aria-label={label}
+                                    size="small"
                                     sx={{
-                                        color: "#FFFFFF",
-                                        fontSize: "0.7rem",
-                                        minWidth: "auto",
-                                        padding: 0,
-                                        textTransform: "none",
-
+                                        width: 27,
+                                        height: 27,
+                                        color: "text.secondary",
+                                        backgroundColor: "action.hover",
+                                        border: 1,
+                                        borderColor: "divider",
                                         "&:hover": {
-                                            color: "#BCA8FF",
-                                            backgroundColor:
-                                                "transparent",
+                                            color: "primary.main",
+                                            backgroundColor: "action.selected",
                                         },
                                     }}
                                 >
-                                    {item.label}
-                                </Button>
+                                    <Icon sx={{ fontSize: 15 }} />
+                                </IconButton>
                             ))}
                         </Stack>
                     </Box>
 
-                    {/* BOTTOM LINE */}
+                    {/* Navigation columns */}
+                    {columns.map((column) => (
+                        <Box key={column.title}>
+                            <Typography
+                                sx={{
+                                    color: "text.primary",
+                                    fontSize: "0.8rem",
+                                    fontWeight: 800,
+                                    mb: 1.5,
+                                }}
+                            >
+                                {column.title}
+                            </Typography>
 
-                    <Box
-                        sx={{
-                            borderTop:
-                                "1px solid rgba(255,255,255,0.08)",
-                            py: 2,
-                            display: "flex",
-                            justifyContent: "space-between",
-                            flexDirection: {
-                                xs: "column",
-                                md: "row",
-                            },
-                            gap: 1,
-                        }}
-                    >
-                        <Typography
-                            sx={{
-                                fontSize: "0.65rem",
-                                color: "rgba(255,255,255,0.45)",
-                            }}
-                        >
-                            © Evalify · AI-powered hiring
-                        </Typography>
-
-                        <Typography
-                            sx={{
-                                fontSize: "0.65rem",
-                                color: "rgba(255,255,255,0.45)",
-                            }}
-                        >
-                            Thoughtful tools for fairer decisions
-                        </Typography>
-                    </Box>
-                </Container>
-            </Box>
+                            <Stack spacing={0.8}>
+                                {column.links.map((link) => (
+                                    <Typography
+                                        key={link.label}
+                                        component="a"
+                                        href={link.href}
+                                        sx={{
+                                            width: "fit-content",
+                                            color: "text.secondary",
+                                            fontSize: "0.75rem",
+                                            textDecoration: "none",
+                                            "&:hover": {
+                                                color: "primary.main",
+                                            },
+                                        }}
+                                    >
+                                        {link.label}
+                                    </Typography>
+                                ))}
+                            </Stack>
+                        </Box>
+                    ))}
+                </Box>
+            </Container>
         </Box>
     );
 }
 
 export default FooterSection;
-5

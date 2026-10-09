@@ -1,261 +1,218 @@
-import {
-    Box,
-    Container,
-    Typography,
-} from "@mui/material";
 
-import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
-
-import heroImage from "../../../assets/hero.png";
-
-import SectionLabel from "../../common/SectionLabel";
-import ActionButton from "../../common/ActionButton";
-import LogoSquare from "../../common/LogoSquare";
-import NavButton from "./NavButton";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import heroDashboard from "../../../assets/hero-dashboard.png";
 
 function HeroSection() {
+    const stats = [
+        { value: "70%", label: "Faster hiring" },
+        { value: "4x", label: "More accurate evaluations" },
+        { value: "50+", label: "Skills supported" },
+    ];
+
     return (
         <Box
-            id="home"
             component="section"
             sx={{
-                backgroundColor: "background.hero",
-                color: "text.hero",
-                minHeight: "100vh",
-                
-            }}
+    background: (theme) => theme.gradients.hero,
+    overflow: "hidden",
+    py: { xs: 6, md: 8 },
+}}
         >
-            {/* NAVBAR */}
-
             <Container maxWidth="xl">
                 <Box
                     sx={{
-                        height: "80px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                    }}
-                >
-                    {/* LOGO */}
-
-                    <Box
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1,
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                display: "grid",
-                                gridTemplateColumns:
-                                    "repeat(2, 12px)",
-                                gap: "3px",
-                            }}
-                        >
-                            <LogoSquare color="#FF9B6A" />
-                            <LogoSquare color="#F6B85F" />
-                            <LogoSquare color="#6F58D9" />
-                            <LogoSquare color="#75B8E8" />
-                        </Box>
-
-                        <Typography
-                            sx={{
-                                fontSize: "1.2rem",
-                                fontWeight: 700,
-                                letterSpacing: "-0.03em",
-                            }}
-                        >
-                            evalify
-                        </Typography>
-                    </Box>
-
-                    {/* NAVIGATION */}
-
-                    <Box
-                        sx={{
-                            display: {
-                                xs: "none",
-                                md: "flex",
-                            },
-                            alignItems: "center",
-                            gap: 3,
-                        }}
-                    >
-                        <NavButton href="#platform">
-                            Platform
-                        </NavButton>
-
-                        <NavButton href="#how-it-works">
-                            How it works
-                        </NavButton>
-
-                        <NavButton href="#customer-stories">
-                            Customer stories
-                        </NavButton>
-
-                        <NavButton href="#faq">
-                            FAQ
-                        </NavButton>
-                    </Box>
-
-                    {/* NAV CTA */}
-
-                    <Box
-                        sx={{
-                            display: {
-                                xs: "none",
-                                sm: "flex",
-                            },
-                            alignItems: "center",
-                            gap: 1.5,
-                        }}
-                    >
-                        <ActionButton href="#home">
-                            Get started
-                        </ActionButton>
-
-                        <ActionButton href="#login">
-                            Log in
-                        </ActionButton>
-                    </Box>
-                </Box>
-            </Container>
-
-            {/* HERO CONTENT */}
-
-            <Container maxWidth="xl">
-                <Box
-                    sx={{
-                        minHeight: {
-                            xs: "calc(100vh - 80px)",
-                            md: "calc(100vh - 80px)",
-                        },
                         display: "grid",
                         gridTemplateColumns: {
                             xs: "1fr",
-                            md: "1fr 1fr",
+                            md: "0.9fr 1.1fr",
                         },
                         alignItems: "center",
-                        gap: {
-                            xs: 6,
-                            md: 8,
-                        },
-                        py: {
-                            xs: 7,
-                            md: 5,
-                        },
+                        gap: { xs: 3, md: 1 },
+                        pt: { xs: 5, md: 4 },
+                        pb: { xs: 4, md: 3 },
                     }}
                 >
-                    {/* LEFT */}
-
-                    <Box>
-                        <SectionLabel>
-                            HIRING, WITH MORE SIGNAL
-                        </SectionLabel>
-
-                        <Typography
+                    {/* Left content */}
+                    <Box sx={{ position: "relative", zIndex: 1 }}>
+                        <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={0.8}
                             sx={{
-                                fontSize: {
-                                    xs: "3.2rem",
-                                    sm: "4.2rem",
-                                    md: "5.5rem",
-                                },
-                                fontWeight: 500,
-                                lineHeight: 0.92,
-                                letterSpacing: "-0.055em",
-                                maxWidth: 650,
+                                display: "inline-flex",
+                                px: 1.2,
+                                py: 0.6,
+                                borderRadius: "20px",
+                                backgroundColor: "background.paper",
+                                border: 1,
+                                borderColor: "divider",
+                                mb: 2,
                             }}
                         >
-                            Find the
-                            <br />
-                            right people,
-                            <br />
-                            faster.
+                            <CheckCircleIcon
+                                sx={{
+                                    fontSize: 13,
+                                    color: "secondary.main",
+                                }}
+                            />
+                            <Typography
+                                sx={{
+                                    color: "text.secondary",
+                                    fontSize: "0.68rem",
+                                    fontWeight: 600,
+                                }}
+                            >
+                                AI-Powered Interview Platform
+                            </Typography>
+                        </Stack>
+
+                        <Typography
+                            component="h1"
+                            sx={{
+                                color: "text.primary",
+                                fontSize: {
+                                    xs: "2.8rem",
+                                    sm: "3.5rem",
+                                    lg: "4.2rem",
+                                },
+                                fontWeight: 800,
+                                lineHeight: 0.99,
+                                letterSpacing: "-0.055em",
+                                maxWidth: 520,
+                            }}
+                        >
+                            Interview Less.
+                            <Box
+                                component="span"
+                                sx={{
+                                    display: "block",
+                                    background: (theme) =>
+                                        theme.gradients.tealBlue,
+                                    backgroundClip: "text",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                }}
+                            >
+                                Evaluate More.
+                            </Box>
                         </Typography>
 
                         <Typography
                             sx={{
                                 color: "text.secondary",
-                                maxWidth: 520,
-                                mt: 3,
-                                fontSize: {
-                                    xs: "0.95rem",
-                                    md: "1rem",
-                                },
+                                fontSize: "0.9rem",
                                 lineHeight: 1.7,
+                                maxWidth: 450,
+                                mt: 2,
                             }}
                         >
-                            Evalify helps teams build thoughtful,
-                            structured assessments that reveal what
-                            candidates can actually do.
+                            AI-driven interviews, instant evaluations and
+                            detailed insights to help you hire the right
+                            talent faster.
                         </Typography>
 
-                        {/* ACTIONS */}
-
-                        <Box
-                            sx={{
-                                display: "flex",
-                                flexWrap: "wrap",
-                                gap: 1.5,
-                                mt: 4,
-                            }}
+                        <Stack
+                            direction="row"
+                            flexWrap="wrap"
+                            spacing={1.2}
+                            sx={{ mt: 3 }}
                         >
-                            <ActionButton href="#platform">
-                                Get started free
-                            </ActionButton>
-
-                            <ActionButton href="#how-it-works">
-                                See how Evalify works
-                            </ActionButton>
-                        </Box>
-
-                        {/* TRUST */}
-
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 1,
-                                mt: 3,
-                            }}
-                        >
-                            <VerifiedUserOutlinedIcon
+                            <Button
+                                component="a"
+                                href="#pricing"
+                                variant="contained"
+                                endIcon={<ArrowForwardIcon />}
                                 sx={{
-                                    fontSize: 18,
-                                    color: "accent.green",
-                                }}
-                            />
-
-                            <Typography
-                                sx={{
-                                    fontSize: "0.7rem",
-                                    color: "text.muted",
+                                    backgroundColor: "primary.main",
+                                    color: "primary.contrastText",
+                                    boxShadow: (theme) =>
+                                        theme.customShadows.button,
+                                    "&:hover": {
+                                        backgroundColor: "primary.dark",
+                                    },
                                 }}
                             >
-                                Built for thoughtful, fairer hiring
-                            </Typography>
+                                Start free trial
+                            </Button>
+
+                            <Button
+                                component="a"
+                                href="#how-it-works"
+                                startIcon={<PlayArrowIcon />}
+                                sx={{
+                                    backgroundColor: "background.paper",
+                                    color: "text.primary",
+                                    "&:hover": {
+                                        backgroundColor: "background.soft",
+                                    },
+                                }}
+                            >
+                                Watch demo
+                            </Button>
+                        </Stack>
+
+                        {/* Statistics */}
+                        <Box
+                            sx={{
+                                display: "grid",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gap: { xs: 1.5, sm: 3 },
+                                mt: { xs: 4, md: 5 },
+                                maxWidth: 470,
+                            }}
+                        >
+                            {stats.map((stat) => (
+                                <Box key={stat.label}>
+                                    <Typography
+                                        sx={{
+                                            color: "text.primary",
+                                            fontSize: {
+                                                xs: "1.35rem",
+                                                sm: "1.6rem",
+                                            },
+                                            fontWeight: 800,
+                                            letterSpacing: "-0.04em",
+                                        }}
+                                    >
+                                        {stat.value}
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            color: "text.secondary",
+                                            fontSize: "0.65rem",
+                                            lineHeight: 1.5,
+                                            mt: 0.4,
+                                        }}
+                                    >
+                                        {stat.label}
+                                    </Typography>
+                                </Box>
+                            ))}
                         </Box>
                     </Box>
 
-                    {/* RIGHT IMAGE */}
-
+                    {/* Right illustration */}
                     <Box
                         sx={{
                             display: "flex",
-                            justifyContent: "center",
                             alignItems: "center",
+                            justifyContent: "center",
+                            minWidth: 0,
+                            width: "100%",
                         }}
                     >
                         <Box
                             component="img"
-                            src={heroImage}
-                            alt="Evalify hiring platform"
+                            src={heroDashboard}
+                            alt="Evalify AI interview dashboard with video interviews and candidate analytics"
                             sx={{
-                                width: "100%",
-                                maxWidth: 650,
-                                height: "auto",
                                 display: "block",
+                                width: "100%",
+                                maxWidth: 680,
+                                height: "auto",
                                 objectFit: "contain",
                             }}
                         />
@@ -267,4 +224,3 @@ function HeroSection() {
 }
 
 export default HeroSection;
-

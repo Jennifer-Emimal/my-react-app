@@ -1,141 +1,191 @@
+
 import {
+    Avatar,
     Box,
     Container,
     Stack,
     Typography,
 } from "@mui/material";
 
-import SectionLabel from "../../common/SectionLabel";
-import TestimonialCard from "./TestimonialCard";
-
 function TestimonialsSection() {
     const testimonials = [
         {
-            text: "Evalify has reduced our hiring time by 70%. The quality of candidates is significantly better.",
+            quote: "Evalify has reduced our hiring time by 70%. The quality of candidates is significantly better.",
             name: "Sarah Chen",
             role: "Head of Talent, FintechCo",
-            initials: "SC",
-            highlighted: true,
-            avatarColor: "#F2D7C7",
+            portraits: [
+                "https://randomuser.me/api/portraits/women/44.jpg",
+                "https://randomuser.me/api/portraits/women/68.jpg",
+            ],
         },
         {
-            text: "The AI evaluations are incredibly accurate and save us hours of manual screening.",
+            quote: "The AI evaluations are incredibly accurate and save us hours of manual screening.",
             name: "James Wilson",
             role: "CTO, StartupX",
-            initials: "JW",
-            highlighted: false,
-            avatarColor: "#DDE9D9",
+            portraits: [
+                "https://randomuser.me/api/portraits/men/32.jpg",
+                "https://randomuser.me/api/portraits/men/75.jpg",
+            ],
         },
         {
-            text: "A must-have for any modern recruiting team. Simple, powerful and reliable.",
+            quote: "A must-have for any modern recruiting team. Simple, powerful and reliable.",
             name: "Priya Sharma",
             role: "HR Director, SaaSFlow",
-            initials: "PS",
-            highlighted: false,
-            avatarColor: "#E7DDF7",
+            portraits: [
+                "https://randomuser.me/api/portraits/women/65.jpg",
+                "https://randomuser.me/api/portraits/women/26.jpg",
+            ],
         },
     ];
 
     return (
         <Box
-            id="customer-stories"
+            id="testimonials"
             component="section"
             sx={{
-                backgroundColor: "background.hero",
+                background: (theme) => theme.gradients.hero,
+                py: { xs: 6, md: 8 },
             }}
         >
-            <Container maxWidth="x1">
-                {/* HEADER */}
+            <Container maxWidth="xl">
+                {/* Centered heading */}
+                <Box
+                    sx={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        textAlign: "center",
+                        mb: { xs: 4, md: 5 },
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: "secondary.dark",
+                            fontSize: "0.65rem",
+                            fontWeight: 800,
+                            letterSpacing: "0.12em",
+                            mb: 1.5,
+                        }}
+                    >
+                        LOVED BY RECRUITERS
+                    </Typography>
 
-                <Stack
-    direction={{ xs: "column", md: "row" }}
-    justifyContent="space-between"
-    alignItems={{ xs: "flex-start", md: "flex-end" }}
-    sx={{ mb: 6 }}
->
-    {/* LEFT */}
-    <Box sx={{ flex: 1 }}>
-        <SectionLabel>
-            TEAMS SAY IT BEST
-        </SectionLabel>
+                    <Typography
+                        component="h2"
+                        sx={{
+                            color: "text.primary",
+                            fontSize: { xs: "2rem", md: "2.6rem" },
+                            fontWeight: 800,
+                            lineHeight: 1.08,
+                            letterSpacing: "-0.045em",
+                            width: "100%",
+                            textAlign: "center",
+                        }}
+                    >
+                        Recruiters are getting their
+                        <br />
+                        <Box
+                            component="span"
+                            sx={{
+                                background: (theme) =>
+                                    theme.gradients.tealBlue,
+                                backgroundClip: "text",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                            }}
+                        >
+                            evenings back.
+                        </Box>
+                    </Typography>
+                </Box>
 
-        <Typography
-            sx={{
-                color: "text.hero",
-                fontSize: {
-                    xs: "2.8rem",
-                    sm: "3.5rem",
-                    md: "4.2rem",
-                },
-                fontWeight: 500,
-                lineHeight: 1.05,
-                letterSpacing: "-0.045em",
-            }}
-        >
-            Less guesswork.
-        </Typography>
-
-        <Typography
-            sx={{
-                color: "primary.main",
-                fontSize: {
-                    xs: "2.8rem",
-                    sm: "3.5rem",
-                    md: "4.2rem",
-                },
-                fontWeight: 400,
-                fontStyle: "italic",
-                fontFamily: "Georgia, serif",
-                lineHeight: 1.05,
-                letterSpacing: "-0.045em",
-            }}
-        >
-            More confidence.
-        </Typography>
-    </Box>
-
-    {/* RIGHT */}
-    <Box
-        sx={{
-            width: { xs: "100%", md: "250px" },
-            textAlign: { xs: "left", md: "left" },
-            mt: { xs: 0, md: 19 },
-        }}
-    >
-        <Typography
-            sx={{
-                color: "text.secondary",
-                fontSize: "0.8rem",
-                lineHeight: 1.5,
-            }}
-        >
-            What hiring teams are saying about Evalify
-        </Typography>
-    </Box>
-</Stack>
-
-                {/* TESTIMONIAL CARDS */}
-
+                {/* Testimonial cards */}
                 <Box
                     sx={{
                         display: "grid",
                         gridTemplateColumns: {
                             xs: "1fr",
-                            md: "1.1fr 1fr 1fr",
+                            md: "repeat(3, minmax(0, 1fr))",
                         },
-                        gap: 2,
+                        gap: { xs: 2, md: 2.5 },
+                        width: "100%",
+                        maxWidth: 1500,
+                        mx: "auto",
                     }}
                 >
-                    {testimonials.map((testimonial) => (
-                        <TestimonialCard
-                            key={testimonial.name}
-                            text={testimonial.text}
-                            name={testimonial.name}
-                            role={testimonial.role}
-                            initials={testimonial.initials}
-                            highlighted={testimonial.highlighted}
-                            avatarColor={testimonial.avatarColor}
-                        />
+                    {testimonials.map((item) => (
+                        <Box
+                            key={item.name}
+                            sx={{
+                                backgroundColor: "background.paper",
+                                border: 1,
+                                borderColor: "divider",
+                                borderRadius: "14px",
+                                p: { xs: 2.5, md: 2 },
+                                minHeight: { xs: 170, md: 150 },
+                                display: "flex",
+                                alignItems: "center",
+                                boxShadow: (theme) =>
+                                    theme.customShadows.card,
+                            }}
+                        >
+                            <Stack
+                                direction="row"
+                                spacing={1.5}
+                                alignItems="flex-start"
+                                sx={{ width: "100%" }}
+                            >
+                                {/* Two portrait avatars */}
+                                <Stack spacing={1} flexShrink={0}>
+                                    {item.portraits.map((portrait) => (
+                                        <Avatar
+                                            key={portrait}
+                                            src={portrait}
+                                            alt="Portrait"
+                                            sx={{
+                                                width: 42,
+                                                height: 42,
+                                            }}
+                                        />
+                                    ))}
+                                </Stack>
+
+                                {/* Quote and reviewer details */}
+                                <Box sx={{ flex: 1, minWidth: 0 }}>
+                                    <Typography
+                                        sx={{
+                                            color: "text.primary",
+                                            fontSize: "0.78rem",
+                                            lineHeight: 1.5,
+                                            mb: 2,
+                                        }}
+                                    >
+                                        “{item.quote}”
+                                    </Typography>
+
+                                    <Typography
+                                        sx={{
+                                            color: "text.primary",
+                                            fontSize: "0.7rem",
+                                            fontWeight: 800,
+                                        }}
+                                    >
+                                        {item.name}
+                                    </Typography>
+
+                                    <Typography
+                                        sx={{
+                                            color: "text.secondary",
+                                            fontSize: "0.62rem",
+                                            mt: 0.3,
+                                        }}
+                                    >
+                                        {item.role}
+                                    </Typography>
+                                </Box>
+                            </Stack>
+                        </Box>
                     ))}
                 </Box>
             </Container>
