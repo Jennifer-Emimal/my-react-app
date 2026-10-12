@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
     Box,
@@ -11,7 +10,6 @@ import {
 } from "@mui/material";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
@@ -20,11 +18,11 @@ function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navItems = [
-        { label: "Product", href: "#product" },
-        { label: "Features", href: "#features" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "Resources", href: "#resources" },
-    ];
+    { label: "Product", href: "#interview-showcase" },
+    { label: "Features", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Resources", href: "#testimonials" },
+];
 
     return (
         <Box
@@ -96,33 +94,15 @@ function Navbar() {
                         }}
                     >
                         {navItems.map((item) => (
-                            <Button
-                                key={item.label}
-                                component="a"
-                                href={item.href}
-                                endIcon={
-                                    item.dropdown ? (
-                                        <KeyboardArrowDownIcon />
-                                    ) : null
-                                }
-                                sx={{
-                                    color: "text.primary",
-                                    fontSize: "0.76rem",
-                                    fontWeight: 600,
-                                    minWidth: "auto",
-                                    px: 0.5,
-                                    "& .MuiButton-endIcon": {
-                                        ml: 0.2,
-                                    },
-                                    "&:hover": {
-                                        color: "secondary.dark",
-                                        backgroundColor: "transparent",
-                                    },
-                                }}
-                            >
-                                {item.label}
-                            </Button>
-                        ))}
+    <Button
+        key={item.label}
+        component="a"
+        href={item.href}
+        variant="nav"
+    >
+        {item.label}
+    </Button>
+))}
                     </Stack>
 
                     {/* Desktop actions */}
@@ -136,8 +116,7 @@ function Navbar() {
                         }}
                     >
                         <Button
-                            component="a"
-                            href="#signin"
+                            onClick={() => {}}
                             sx={{
                                 color: "text.secondary",
                                 fontSize: "0.76rem",
@@ -152,14 +131,12 @@ function Navbar() {
                         </Button>
 
                         <Button
-                            component="a"
-                            href="#get-started"
                             variant="contained"
                             endIcon={<ArrowForwardIcon />}
+                            onClick={() => {}}
                             sx={{
                                 backgroundColor: "primary.main",
                                 color: "primary.contrastText",
-                                borderRadius: "24px",
                                 px: 2,
                                 py: 0.9,
                                 fontSize: "0.75rem",
@@ -204,16 +181,16 @@ function Navbar() {
                     <Stack
                         spacing={1}
                         sx={{
-                            display: { xs: "flex", md: "none" },
+                            display: { xs: "flex", sm: "none" },
                             pb: 2,
                         }}
                     >
                         {navItems.map((item) => (
                             <Button
                                 key={item.label}
-                                component="a"
-                                href={item.href}
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={() =>
+                                    setMobileMenuOpen(false)
+                                }
                                 sx={{
                                     justifyContent: "space-between",
                                     color: "text.primary",
@@ -221,16 +198,13 @@ function Navbar() {
                                 }}
                             >
                                 {item.label}
-                                {item.dropdown && (
-                                    <KeyboardArrowDownIcon />
-                                )}
                             </Button>
                         ))}
 
                         <Button
-                            component="a"
-                            href="#signin"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() =>
+                                setMobileMenuOpen(false)
+                            }
                             sx={{
                                 justifyContent: "flex-start",
                                 color: "text.secondary",
@@ -240,11 +214,11 @@ function Navbar() {
                         </Button>
 
                         <Button
-                            component="a"
-                            href="#get-started"
                             variant="contained"
                             endIcon={<ArrowForwardIcon />}
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() =>
+                                setMobileMenuOpen(false)
+                            }
                             sx={{
                                 alignSelf: "flex-start",
                                 backgroundColor: "primary.main",
