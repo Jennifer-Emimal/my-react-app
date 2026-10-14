@@ -6,6 +6,7 @@ import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 
 import SectionLabel from "./common/SectionLabel";
+import GradientText from "./common/GradientText";
 
 function HowItWorksSection() {
     const steps = [
@@ -49,7 +50,7 @@ function HowItWorksSection() {
             component="section"
             sx={{
                 background: (theme) => theme.gradients.hero,
-                py: { xs: 6, md: 8 },
+                py: { xs: 5, md: 7 },
                 width: "100%",
                 textAlign: "center",
             }}
@@ -62,7 +63,7 @@ function HowItWorksSection() {
                     textAlign="center"
                     sx={{
                         width: "100%",
-                        mb: { xs: 3.5, md: 4.5 },
+                       mb: { xs: 3, md: 4 },
                     }}
                 >
                     <SectionLabel>How it works</SectionLabel>
@@ -78,18 +79,7 @@ function HowItWorksSection() {
                         Four simple steps.
                         <br />
                         From job to the{" "}
-                        <Box
-                            component="span"
-                            sx={{
-                                background: (theme) =>
-                                    theme.gradients.PurpleBlue,
-                                backgroundClip: "text",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                            }}
-                        >
-                            right hire.
-                        </Box>
+                         <GradientText>right hire.</GradientText>
                     </Typography>
 
                     <Typography

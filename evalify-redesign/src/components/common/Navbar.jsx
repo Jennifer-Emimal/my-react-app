@@ -1,3 +1,5 @@
+
+import BrandLogo from "./BrandLogo";
 import { useState } from "react";
 import {
     Box,
@@ -6,11 +8,9 @@ import {
     Collapse,
     IconButton,
     Stack,
-    Typography,
 } from "@mui/material";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
@@ -44,45 +44,8 @@ function Navbar() {
                         gap: 3,
                     }}
                 >
-                    {/* Logo */}
-                    <Stack
-                        direction="row"
-                        alignItems="center"
-                        spacing={0.8}
-                        sx={{ flexShrink: 0 }}
-                    >
-                        <Box
-                            sx={{
-                                width: 27,
-                                height: 27,
-                                borderRadius: "7px",
-                                display: "grid",
-                                placeItems: "center",
-                                background: (theme) =>
-                                    theme.gradients.PurpleBlue,
-                                boxShadow: (theme) =>
-                                    theme.customShadows.button,
-                            }}
-                        >
-                            <AutoAwesomeRoundedIcon
-                                sx={{
-                                    fontSize: 17,
-                                    color: "primary.contrastText",
-                                }}
-                            />
-                        </Box>
-
-                        <Typography
-                            sx={{
-                                color: "text.primary",
-                                fontSize: "1.1rem",
-                                fontWeight: 800,
-                                letterSpacing: "-0.04em",
-                            }}
-                        >
-                            Evalify
-                        </Typography>
-                    </Stack>
+                   {/* Logo */}
+<BrandLogo />
 
                     {/* Desktop navigation */}
                     <Stack
@@ -130,26 +93,14 @@ function Navbar() {
                             Sign in
                         </Button>
 
-                        <Button
-                            variant="contained"
-                            endIcon={<ArrowForwardIcon />}
-                            onClick={() => {}}
-                            sx={{
-                                backgroundColor: "primary.main",
-                                color: "primary.contrastText",
-                                px: 2,
-                                py: 0.9,
-                                fontSize: "0.75rem",
-                                whiteSpace: "nowrap",
-                                boxShadow: (theme) =>
-                                    theme.customShadows.button,
-                                "&:hover": {
-                                    backgroundColor: "primary.dark",
-                                },
-                            }}
-                        >
-                            Get started
-                        </Button>
+<Button
+    variant="contained"
+    endIcon={<ArrowForwardIcon />}
+    onClick={() => {}}
+>
+    Get started
+</Button>
+
                     </Stack>
 
                     {/* Mobile menu button */}
@@ -213,23 +164,16 @@ function Navbar() {
                             Sign in
                         </Button>
 
-                        <Button
-                            variant="contained"
-                            endIcon={<ArrowForwardIcon />}
-                            onClick={() =>
-                                setMobileMenuOpen(false)
-                            }
-                            sx={{
-                                alignSelf: "flex-start",
-                                backgroundColor: "primary.main",
-                                color: "primary.contrastText",
-                                "&:hover": {
-                                    backgroundColor: "primary.dark",
-                                },
-                            }}
-                        >
-                            Get started
-                        </Button>
+                        
+<Button
+    variant="contained"
+    endIcon={<ArrowForwardIcon />}
+    onClick={() => setMobileMenuOpen(false)}
+    sx={{ alignSelf: "flex-start" }}
+>
+    Get started
+</Button>
+
                     </Stack>
                 </Collapse>
             </Container>

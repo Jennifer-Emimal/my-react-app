@@ -1,286 +1,240 @@
 
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
+import TrackChangesOutlinedIcon from "@mui/icons-material/TrackChangesOutlined";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+
+import ctaDashboard from "./../assets/cta-dashboard.png";
+import GradientText from "./common/GradientText";
 
 function CTASection() {
-  const chartValues = [25, 42, 32, 55, 38, 48, 65, 45, 58, 75, 52, 68];
+    const benefits = [
+        {
+            label: "Faster hiring",
+            icon: <BoltOutlinedIcon />,
+        },
+        {
+            label: "More accurate evaluations",
+            icon: <TrackChangesOutlinedIcon />,
+        },
+        {
+            label: "Secure & reliable",
+            icon: <VerifiedUserOutlinedIcon />,
+        },
+    ];
 
-  return (
-    <Box
-      id="get-started"
-      component="section"
-      sx={{
-        py: { xs: 3, md: 4 },
-        background: (theme) => theme.gradients.hero,
-      }}
-    >
-      <Container maxWidth="lg">
+    return (
         <Box
-          sx={{
-            position: "relative",
-            overflow: "hidden",
-            minHeight: { xs: 300, md: 220 },
-            borderRadius: "22px",
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr 0.9fr" },
-            alignItems: "center",
-            background: (theme) => theme.gradients.cta,
-            border: "1px solid",
-            borderColor: "divider",
-            px: { xs: 3, md: 5 },
-            py: { xs: 4, md: 3 },
-          }}
+            component="section"
+            id="get-started"
+            sx={{
+                py: { xs: 5, md: 7 },
+                background: (theme) => theme.gradients.hero,
+                overflow: "hidden",
+            }}
         >
-          {/* Decorative background shape */}
-          <Box
-            sx={{
-              position: "absolute",
-              width: 240,
-              height: 240,
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle, #E4CFFF 0%, transparent 70%)",
-              right: "30%",
-              top: -90,
-              pointerEvents: "none",
-            }}
-          />
-
-          {/* CTA content */}
-          <Box sx={{ position: "relative", zIndex: 1 }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: "2rem", md: "2.8rem" },
-              }}
-            >
-              Stop scheduling.
-              <br />
-              <Box
-                component="span"
-                sx={{
-                  background: (theme) => theme.gradients.tealBlue,
-                  backgroundClip: "text",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Start hiring.
-              </Box>
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{
-                mt: 1.5,
-                maxWidth: 430,
-                color: "text.secondary",
-                fontSize: "0.9rem",
-                lineHeight: 1.7,
-              }}
-            >
-              Join thousands of teams already using Evalify to find and hire
-              top talent.
-            </Typography>
-
-            {/* CTA buttons */}
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 1.5,
-                mt: 2,
-              }}
-            >
-              <Button
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-                sx={{
-                  backgroundColor: "primary.main",
-                  color: "primary.contrastText",
-                  borderRadius: "30px",
-                  px: 2.5,
-                  py: 1.1,
-                  fontSize: "0.75rem",
-                  "&:hover": {
-                    backgroundColor: "primary.dark",
-                  },
-                }}
-              >
-                Start free trial
-              </Button>
-
-              <Button
-                variant="outlined"
-                startIcon={<PlayArrowIcon />}
-                sx={{
-                  color: "primary.main",
-                  backgroundColor: "background.paper",
-                  borderColor: "divider",
-                  borderRadius: "30px",
-                  px: 2.2,
-                  py: 1.1,
-                  fontSize: "0.75rem",
-                  "&:hover": {
-                    backgroundColor: "action.hover",
-                    borderColor: "divider",
-                  },
-                }}
-              >
-                Watch demo
-              </Button>
-            </Box>
-          </Box>
-
-          {/* Dashboard preview */}
-          <Box
-            sx={{
-              position: "relative",
-              display: { xs: "none", md: "flex" },
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: 190,
-            }}
-          >
-            {/* Blurred background */}
-            <Box
-              sx={{
-                position: "absolute",
-                width: 250,
-                height: 200,
-                borderRadius: "45%",
-                background:
-                  "linear-gradient(135deg, #F3D8FF, #FFDDB7, #BFD7FF)",
-                filter: "blur(18px)",
-                opacity: 0.8,
-              }}
-            />
-
-            {/* Dashboard card */}
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                maxWidth: 380,
-                p: 2,
-                borderRadius: "18px",
-                backgroundColor: "rgba(255, 255, 255, 0.72)",
-                border: "1px solid rgba(255, 255, 255, 0.9)",
-                boxShadow: (theme) => theme.customShadows.floating,
-                transform: "rotate(-5deg)",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 2,
-                }}
-              >
-                <Typography
-                  sx={{ fontSize: "0.8rem", fontWeight: 800 }}
-                >
-                  Hiring overview
-                </Typography>
-
-                <Typography
-                  sx={{
-                    color: "success.main",
-                    fontSize: "0.65rem",
-                    fontWeight: 700,
-                  }}
-                >
-                  ● Live
-                </Typography>
-              </Box>
-
-              {/* Metrics */}
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 1.5,
-                  mb: 2,
-                }}
-              >
+            <Container maxWidth="lg">
                 <Box
-                  sx={{
-                    p: 1.5,
-                    borderRadius: "12px",
-                    backgroundColor: "rgba(255, 255, 255, 0.8)",
-                  }}
+                    sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            md: "0.95fr 1.05fr",
+                        },
+                        alignItems: "center",
+                        gap: { xs: 4, md: 2 },
+                        maxWidth: 1500,
+                        mx: "auto",
+                    }}
                 >
-                  <Typography
-                    sx={{
-                      color: "text.secondary",
-                      fontSize: "0.65rem",
-                    }}
-                  >
-                    Candidates
-                  </Typography>
+                    {/* Left content */}
+                    <Box
+                        sx={{
+                            position: "relative",
+                            zIndex: 1,
+                            pl: { xs: 0, md: 2 },
+                        }}
+                    >
+                        {/* Trust badge */}
+                        <Box
+                            sx={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: 1,
+                                px: 1.8,
+                                py: 0.8,
+                                mb: 2.5,
+                                borderRadius: "30px",
+                                backgroundColor: "rgba(20, 184, 166, 0.12)",
+                                color: "primary.main",
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: 8,
+                                    height: 8,
+                                    borderRadius: "50%",
+                                    bgcolor: "#84CC16",
+                                }}
+                            />
 
-                  <Typography
-                    sx={{ fontSize: "1.35rem", fontWeight: 800 }}
-                  >
-                    248
-                  </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: "0.8rem",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                Trusted by 1000+ teams
+                            </Typography>
+                        </Box>
+
+                        {/* Heading */}
+                        <Typography
+                            component="h2"
+                            variant="h2"
+                            sx={{
+                                color: "text.primary",
+                                fontSize: {
+                                    xs: "2rem",
+                                    sm: "2.4rem",
+                                    md: "2.65rem",
+                                },
+                                lineHeight: 1.18,
+                                maxWidth: 480,
+                            }}
+                        >
+                            Stop scheduling.
+                            <br />
+                            <GradientText>Start hiring.</GradientText>
+                        </Typography>
+
+                        {/* Description */}
+                        <Typography
+                            sx={{
+                                mt: 2,
+                                maxWidth: 550,
+                                color: "text.secondary",
+                                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                                lineHeight: 1.7,
+                            }}
+                        >
+                            Join thousands of teams already using Evalify to
+                            find and hire top talent.
+                        </Typography>
+
+                        {/* CTA buttons */}
+                        <Stack
+                            direction="row"
+                            flexWrap="wrap"
+                            spacing={1.2}
+                            sx={{ mt: 3 }}
+                        >
+                            <Button
+                                variant="contained"
+                                endIcon={<ArrowForwardIcon />}
+                            >
+                                Start free trial
+                            </Button>
+
+                            <Button
+                                startIcon={<PlayArrowIcon />}
+                                sx={{
+                                    backgroundColor: "background.paper",
+                                    color: "text.primary",
+                                    "&:hover": {
+                                        backgroundColor: "background.soft",
+                                    },
+                                }}
+                            >
+                                Watch demo
+                            </Button>
+                        </Stack>
+
+                        {/* Benefits */}
+                        <Stack
+                            direction="row"
+                            flexWrap="wrap"
+                            alignItems="center"
+                            sx={{
+                                mt: { xs: 3.5, md: 5 },
+                                rowGap: 1.5,
+                                columnGap: { xs: 2, md: 0 },
+                            }}
+                        >
+                            {benefits.map((benefit, index) => (
+                                <Box
+                                    key={benefit.label}
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: 1,
+                                        color: "text.secondary",
+                                        pr: { xs: 0, md: 2 },
+                                        mr: { xs: 0, md: 2 },
+                                        borderRight: {
+                                            xs: "none",
+                                            md:
+                                                index !== benefits.length - 1
+                                                    ? "1px solid"
+                                                    : "none",
+                                        },
+                                        borderColor: "divider",
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            color: "#8097AD",
+                                        }}
+                                    >
+                                        {benefit.icon}
+                                    </Box>
+
+                                    <Typography
+                                        sx={{
+                                            fontSize: "0.8rem",
+                                            whiteSpace: "nowrap",
+                                        }}
+                                    >
+                                        {benefit.label}
+                                    </Typography>
+                                </Box>
+                            ))}
+                        </Stack>
+                    </Box>
+
+                    {/* Right dashboard illustration */}
+                    <Box
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            minWidth: 0,
+                            isolation: "isolate",
+                        }}
+                    >
+                        <Box
+                            component="img"
+                            src={ctaDashboard}
+                            alt="Evalify hiring dashboard illustration"
+                            sx={(theme) => ({
+                                display: "block",
+                                width: "100%",
+                                maxWidth: 800,
+                                height: "auto",
+                                objectFit: "contain",
+                                ...theme.customStyles.dashboardImage,
+                            })}
+                        />
+                    </Box>
                 </Box>
-
-                <Box
-                  sx={{
-                    p: 1.5,
-                    borderRadius: "12px",
-                    backgroundColor: "rgba(255, 255, 255, 0.8)",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "text.secondary",
-                      fontSize: "0.65rem",
-                    }}
-                  >
-                    Interviews
-                  </Typography>
-
-                  <Typography
-                    sx={{ fontSize: "1.35rem", fontWeight: 800 }}
-                  >
-                    86
-                  </Typography>
-                </Box>
-              </Box>
-
-              {/* Decorative chart bars */}
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "flex-end",
-                  gap: 0.7,
-                  height: 65,
-                  px: 0.5,
-                }}
-              >
-                {chartValues.map((value, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      flex: 1,
-                      height: `${value}%`,
-                      minWidth: 0,
-                      borderRadius: "4px 4px 0 0",
-                      background: (theme) => theme.gradients.tealBlue,
-                    }}
-                  />
-                ))}
-              </Box>
-            </Box>
-          </Box>
+            </Container>
         </Box>
-      </Container>
-    </Box>
-  );
+    );
 }
 
 export default CTASection;

@@ -1,9 +1,11 @@
+
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
+import GradientText from "./common/GradientText";
 import heroDashboard from "../assets/hero-dashboard.png";
 
 function HeroSection() {
@@ -19,7 +21,7 @@ function HeroSection() {
             sx={{
                 background: (theme) => theme.gradients.hero,
                 overflow: "hidden",
-                py: { xs: 3, md: 2 },
+                py: { xs: 5, md: 7 },
             }}
         >
             <Container maxWidth="lg">
@@ -32,8 +34,8 @@ function HeroSection() {
                         },
                         alignItems: "center",
                         gap: { xs: 3, md: 1 },
-                        pt: { xs: 2, md: 1 },
-                        pb: { xs: 4, md: 3 },
+                        pt: 0,
+                        pb: 0,
                     }}
                 >
                     {/* Left content */}
@@ -76,7 +78,6 @@ function HeroSection() {
                         {/* Main heading */}
                         <Typography
                             variant="h1"
-                            component="h1"
                             sx={{
                                 color: "text.primary",
                                 fontSize: {
@@ -88,19 +89,8 @@ function HeroSection() {
                             }}
                         >
                             Interview Less.
-                            <Box
-                                component="span"
-                                sx={{
-                                    display: "block",
-                                    background: (theme) =>
-                                        theme.gradients.PurpleBlue,
-                                    backgroundClip: "text",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-                                }}
-                            >
-                                Evaluate More.
-                            </Box>
+                            <br />
+                            <GradientText>Evaluate More.</GradientText>
                         </Typography>
 
                         {/* Description */}
@@ -129,15 +119,6 @@ function HeroSection() {
                             <Button
                                 variant="contained"
                                 endIcon={<ArrowForwardIcon />}
-                                sx={{
-                                    backgroundColor: "primary.main",
-                                    color: "primary.contrastText",
-                                    boxShadow: (theme) =>
-                                        theme.customShadows.button,
-                                    "&:hover": {
-                                        backgroundColor: "primary.dark",
-                                    },
-                                }}
                             >
                                 Start free trial
                             </Button>
@@ -159,13 +140,14 @@ function HeroSection() {
                         {/* Statistics */}
                         <Box
                             sx={{
-    display: "grid",
-    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-    columnGap: { xs: 2, sm: 3 },
-    width: "100%",
-    maxWidth: 400,
-    mt: { xs: 4, md: 5 },
-}}
+                                display: "grid",
+                                gridTemplateColumns:
+                                    "repeat(3, minmax(0, 1fr))",
+                                columnGap: { xs: 2, sm: 3 },
+                                width: "100%",
+                                maxWidth: 400,
+                                mt: { xs: 4, md: 5 },
+                            }}
                         >
                             {stats.map((stat) => (
                                 <Box
@@ -181,7 +163,10 @@ function HeroSection() {
                                         variant="h3"
                                         sx={{
                                             color: "text.primary",
-                                            fontSize: { xs: "1.35rem", sm: "1.6rem" },
+                                            fontSize: {
+                                                xs: "1.35rem",
+                                                sm: "1.6rem",
+                                            },
                                             whiteSpace: "nowrap",
                                         }}
                                     >
@@ -202,7 +187,6 @@ function HeroSection() {
                                 </Box>
                             ))}
                         </Box>
-
                     </Box>
 
                     {/* Right illustration */}
@@ -219,17 +203,14 @@ function HeroSection() {
                             component="img"
                             src={heroDashboard}
                             alt="Evalify AI interview dashboard with video interviews and candidate analytics"
-                            sx={{
+                            sx={(theme) => ({
                                 display: "block",
                                 width: "100%",
                                 maxWidth: 680,
                                 height: "auto",
                                 objectFit: "contain",
-                                maskImage:
-                                    "radial-gradient(ellipse at center, black 50%, transparent 100%)",
-                                WebkitMaskImage:
-                                    "radial-gradient(ellipse at center, black 25%, transparent 100%)",
-                            }}
+                                ...theme.customStyles.dashboardImage,
+                            })}
                         />
                     </Box>
                 </Box>

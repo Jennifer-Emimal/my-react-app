@@ -13,6 +13,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 
 import SectionLabel from "./common/SectionLabel";
+import GradientText from "./common/GradientText";
 
 function FAQSection() {
     const [openIndex, setOpenIndex] = useState(-1);
@@ -50,10 +51,10 @@ function FAQSection() {
             id="faq"
             component="section"
             sx={{
-                background: (theme) => theme.gradients.hero,
-                py: { xs: 6, md: 8 },
-                overflow: "hidden",
-            }}
+    background: (theme) => theme.gradients.hero,
+    py: { xs: 5, md: 7 },
+    overflow: "hidden",
+}}
         >
             <Container maxWidth="lg">
                 <Box
@@ -63,7 +64,7 @@ function FAQSection() {
                             xs: "1fr",
                             md: "0.95fr 1.05fr",
                         },
-                        gap: { xs: 5, md: 7 },
+                        gap: { xs: 4, md: 5 },
                         alignItems: "start",
                     }}
                 >
@@ -100,18 +101,7 @@ function FAQSection() {
                                 Questions teams ask
                                 <br />
                                 before{" "}
-                                <Box
-                                    component="span"
-                                    sx={{
-                                        background: (theme) =>
-                                            theme.gradients.PurpleBlue,
-                                        backgroundClip: "text",
-                                        WebkitBackgroundClip: "text",
-                                        WebkitTextFillColor: "transparent",
-                                    }}
-                                >
-                                    switching.
-                                </Box>
+                                 <GradientText>switching.</GradientText>
                             </Typography>
 
                             <Typography
@@ -127,7 +117,6 @@ function FAQSection() {
                             </Typography>
                         </Box>
 
-                        
                         {/* Support card */}
                         <Box
                             sx={{
@@ -136,14 +125,14 @@ function FAQSection() {
                                 display: "flex",
                                 alignItems: "flex-start",
                                 gap: 2,
-                                mt: 6, 
+                                mt: 6,
                                 p: { xs: 1.5, md: 2 },
                                 borderRadius: 2,
-background: (theme) => theme.gradients.cta,                                border: 1,
+                                background: (theme) => theme.gradients.cta,
+                                border: 1,
                                 borderColor: "divider",
                             }}
                         >
-                            
                             <Box sx={{ minWidth: 0 }}>
                                 <Typography
                                     variant="h3"
@@ -163,6 +152,7 @@ background: (theme) => theme.gradients.cta,                                borde
                                     platform.
                                 </Typography>
 
+                                {/* Shared CTA button */}
                                 <Button
                                     variant="contained"
                                     endIcon={<ArrowForwardRoundedIcon />}
@@ -174,7 +164,7 @@ background: (theme) => theme.gradients.cta,                                borde
                         </Box>
                     </Box>
 
-                    {/* Right column */}
+                    {/* Right column: FAQ list */}
                     <Stack
                         spacing={0}
                         sx={{

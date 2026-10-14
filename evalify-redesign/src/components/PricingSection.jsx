@@ -11,6 +11,7 @@ import {
 import CheckIcon from "@mui/icons-material/Check";
 
 import SectionLabel from "./common/SectionLabel";
+import GradientText from "./common/GradientText";
 
 function PricingSection() {
     const [yearly, setYearly] = useState(false);
@@ -77,7 +78,7 @@ function PricingSection() {
             component="section"
             sx={{
                 background: (theme) => theme.gradients.hero,
-                py: { xs: 6, md: 8 },
+                py: { xs: 5, md: 7 },
             }}
         >
             <Container
@@ -114,18 +115,7 @@ function PricingSection() {
                         }}
                     >
                         Start free.{" "}
-                        <Box
-                            component="span"
-                            sx={{
-                                background: (theme) =>
-                                    theme.gradients.PurpleBlue,
-                                backgroundClip: "text",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                            }}
-                        >
-                            Scale when
-                        </Box>{" "}
+                         <GradientText>Scale when </GradientText>
                         you're ready.
                     </Typography>
 

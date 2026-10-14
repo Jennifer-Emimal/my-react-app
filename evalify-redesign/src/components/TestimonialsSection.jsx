@@ -10,6 +10,7 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import Divider from "@mui/material/Divider";
 
 import SectionLabel from "./common/SectionLabel";
+import GradientText from "./common/GradientText";
 
 function TestimonialsSection() {
     const testimonials = [
@@ -38,9 +39,9 @@ function TestimonialsSection() {
             id="testimonials"
             component="section"
             sx={{
-                background: (theme) => theme.gradients.hero,
-                py: { xs: 6, md: 8 },
-            }}
+    background: (theme) => theme.gradients.hero,
+    py: { xs: 5, md: 7 },
+}}
         >
             <Container maxWidth="lg">
                 {/* Section heading */}
@@ -51,7 +52,7 @@ function TestimonialsSection() {
                         flexDirection: "column",
                         alignItems: "center",
                         textAlign: "center",
-                        mb: { xs: 4, md: 5 },
+                        mb: { xs: 3, md: 4 },
                     }}
                 >
                     <SectionLabel>Loved by recruiters</SectionLabel>
@@ -71,18 +72,7 @@ function TestimonialsSection() {
                     >
                         Recruiters are getting their
                         <br />
-                        <Box
-                            component="span"
-                            sx={{
-                                background: (theme) =>
-                                    theme.gradients.PurpleBlue,
-                                backgroundClip: "text",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                            }}
-                        >
-                            evenings back.
-                        </Box>
+                         <GradientText>evenings back.</GradientText>
                     </Typography>
                 </Box>
 

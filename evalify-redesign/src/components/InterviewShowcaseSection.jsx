@@ -1,8 +1,11 @@
-import { Box, Button, Container, Stack, textFieldClasses, Typography } from "@mui/material";
 
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import SectionLabel from "./common/SectionLabel";
+import GradientText from "./common/GradientText";
 import interviewDashboard from "../assets/interview-dashboard.png";
 
 function InterviewShowcaseSection() {
@@ -19,7 +22,7 @@ function InterviewShowcaseSection() {
             component="section"
             sx={{
                 background: (theme) => theme.gradients.hero,
-                py: { xs: 6, md: 8 },
+                py: { xs: 5, md: 7 },
                 overflow: "hidden",
             }}
         >
@@ -39,12 +42,12 @@ function InterviewShowcaseSection() {
                     <Box
                         sx={{
                             maxWidth: 400,
-                            textAlign: { xs: "left", md: "left" },
+                            textAlign: "left",
                         }}
                     >
                         <SectionLabel align="left">
-    Powerful AI Interviews
-</SectionLabel>
+                            Powerful AI Interviews
+                        </SectionLabel>
 
                         {/* Section heading */}
                         <Typography
@@ -61,18 +64,7 @@ function InterviewShowcaseSection() {
                             Hire faster,
                             <br />
                             hire fairer, hire{" "}
-                            <Box
-                                component="span"
-                                sx={{
-                                    background: (theme) =>
-                                        theme.gradients.PurpleBlue,
-                                    backgroundClip: "text",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-                                }}
-                            >
-                                better.
-                            </Box>
+                            <GradientText>better.</GradientText>
                         </Typography>
 
                         {/* Description */}
@@ -96,10 +88,7 @@ function InterviewShowcaseSection() {
                                     key={benefit}
                                     direction="row"
                                     alignItems="center"
-                                    justifyContent={{
-                                        xs: "center",
-                                        md: "flex-start",
-                                    }}
+                                    justifyContent="flex-start"
                                     spacing={1.2}
                                 >
                                     <CheckCircleIcon
@@ -126,18 +115,8 @@ function InterviewShowcaseSection() {
                         {/* CTA button */}
                         <Button
                             variant="contained"
-                            sx={{
-                                mt: 3.5,
-                                backgroundColor: "primary.main",
-                                color: "primary.contrastText",
-                                px: 2.5,
-                                py: 1.2,
-                                boxShadow: (theme) =>
-                                    theme.customShadows.button,
-                                "&:hover": {
-                                    backgroundColor: "primary.dark",
-                                },
-                            }}
+                            endIcon={<ArrowForwardIcon />}
+                            sx={{ mt: 3.5 }}
                         >
                             Explore features
                         </Button>
@@ -157,17 +136,14 @@ function InterviewShowcaseSection() {
                             component="img"
                             src={interviewDashboard}
                             alt="AI video interview with speech analysis and candidate scorecards"
-                            sx={{
+                            sx={(theme) => ({
                                 display: "block",
                                 width: "100%",
                                 maxWidth: 760,
                                 height: "auto",
                                 objectFit: "contain",
-                                WebkitMaskImage:
-                                    "radial-gradient(ellipse at center, black 55%, transparent 100%)",
-                                maskImage:
-                                    "radial-gradient(ellipse at center, black 55%, transparent 100%)",
-                            }}
+                                ...theme.customStyles.dashboardImage,
+                            })}
                         />
                     </Box>
                 </Box>

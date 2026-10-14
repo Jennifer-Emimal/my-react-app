@@ -28,6 +28,16 @@ const theme = createTheme({
     floating: "0 18px 50px rgba(51, 91, 145, 0.14)",
     button: "0 5px 15px rgba(7, 49, 58, 0.12)",
   },
+
+  customStyles: {
+  dashboardImage: {
+    maskImage:
+      "radial-gradient(ellipse at center, black 50%, transparent 100%)",
+    WebkitMaskImage:
+      "radial-gradient(ellipse at center, black 50%, transparent 100%)",
+  },
+},
+
 });
 
 export default theme;

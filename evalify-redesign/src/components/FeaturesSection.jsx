@@ -8,6 +8,7 @@ import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 
 import SectionLabel from "./common/SectionLabel";
+import GradientText from "./common/GradientText";
 
 function FeaturesSection() {
   const features = [
@@ -66,9 +67,9 @@ function FeaturesSection() {
       id="features"
       component="section"
       sx={{
-        background: (theme) => theme.gradients.hero,
-        py: { xs: 6, md: 8 },
-      }}
+  background: (theme) => theme.gradients.hero,
+  py: { xs: 5, md: 7 },
+}}
     >
       <Container maxWidth="lg">
         {/* Section heading */}
@@ -79,7 +80,7 @@ function FeaturesSection() {
             flexDirection: "column",
             alignItems: "center",
             textAlign: "center",
-            mb: { xs: 4, md: 5 },
+            mb: { xs: 3, md: 4 },
           }}
         >
           <SectionLabel>Everything you need</SectionLabel>
@@ -93,17 +94,7 @@ function FeaturesSection() {
             }}
           >
             Built for modern hiring{" "}
-            <Box
-              component="span"
-              sx={{
-                background: (theme) => theme.gradients.PurpleBlue,
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              teams.
-            </Box>
+            <GradientText>teams.</GradientText>
           </Typography>
 
           <Typography

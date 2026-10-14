@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography, IconButton } from "@mui/material";
-
+import BrandLogo from "./common/BrandLogo";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -58,10 +58,10 @@ function FooterSection() {
       component="footer"
       sx={{
         background: (theme) => theme.gradients.hero,
-        py: { xs: 4, md: 5 },
+        py: { xs: 5, md: 7 },
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Box
           sx={{
             display: "grid",
@@ -75,38 +75,10 @@ function FooterSection() {
         >
           {/* Brand */}
           <Box>
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={1}
-              sx={{ mb: 1.5 }}
-            >
-              <Box
-                sx={{
-                  width: 25,
-                  height: 25,
-                  borderRadius: "6px",
-                  display: "grid",
-                  placeItems: "center",
-                  background: (theme) => theme.gradients.tealBlue,
-                  color: "common.white",
-                  fontSize: "0.9rem",
-                  fontWeight: 800,
-                }}
-              >
-                ✦
-              </Box>
-
-              <Typography
-                sx={{
-                  color: "text.primary",
-                  fontSize: "1.2rem",
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                Evalify
-              </Typography>
-            </Stack>
+            {/* Brand */}
+<Box sx={{ mb: 1.5 }}>
+  <BrandLogo />
+</Box>
 
             <Typography
               variant="body2"

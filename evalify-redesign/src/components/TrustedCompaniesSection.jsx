@@ -32,7 +32,7 @@ function TrustedCompaniesSection() {
     borderTop: 1,
     borderBottom: 1,
     borderColor: "divider",
-    py: { xs: 4, md: 5 },
+    py: { xs: 5, md: 7 },
 }}
         >
             <Container maxWidth="lg">
@@ -40,7 +40,7 @@ function TrustedCompaniesSection() {
                <SectionLabel>Trusted by growing teams </SectionLabel>
 
                 {/* Company logos */}
-                {/* Company logos */}
+                
 <Box
     sx={{
         display: "grid",
