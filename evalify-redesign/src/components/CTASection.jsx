@@ -15,7 +15,7 @@ function CTASection() {
         background: (theme) => theme.gradients.hero,
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Box
           sx={{
             position: "relative",

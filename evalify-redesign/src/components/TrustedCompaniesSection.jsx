@@ -8,6 +8,7 @@ import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import SectionLabel from "./common/SectionLabel";
 
 function TrustedCompaniesSection() {
     const companies = [
@@ -25,44 +26,39 @@ function TrustedCompaniesSection() {
         <Box
             component="section"
             aria-label="Trusted companies"
+            
             sx={{
-                background: (theme) => theme.gradients.hero,
-                py: { xs: 4, md: 5 },
-            }}
+    background: (theme) => theme.gradients.hero,
+    borderTop: 1,
+    borderBottom: 1,
+    borderColor: "divider",
+    py: { xs: 4, md: 5 },
+}}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 {/* Section heading */}
-                <Typography
-                    variant="body1"
-                    sx={{
-                        textAlign: "center",
-                        color: "text.disabled",
-                        fontSize: "0.95rem",
-                        fontWeight: 700,
-                        mb: 4,
-                    }}
-                >
-                    Trusted by growing teams
-                </Typography>
+               <SectionLabel>Trusted by growing teams </SectionLabel>
 
                 {/* Company logos */}
-                <Box
-                    sx={{
-                        display: "grid",
-                        gridTemplateColumns: {
-                            xs: "repeat(2, minmax(0, 1fr))",
-                            sm: "repeat(4, minmax(0, 1fr))",
-                            md: "repeat(8, minmax(0, 1fr))",
-                        },
-                        justifyItems: "center",
-                        alignItems: "center",
-                        width: "100%",
-                        maxWidth: 1200,
-                        mx: "auto",
-                        columnGap: 2,
-                        rowGap: 2,
-                    }}
-                >
+                {/* Company logos */}
+<Box
+    sx={{
+        display: "grid",
+        gridTemplateColumns: {
+            xs: "repeat(2, minmax(0, 1fr))",
+            sm: "repeat(4, minmax(0, 1fr))",
+            md: "repeat(8, minmax(0, 1fr))",
+        },
+        justifyItems: "center",
+        alignItems: "center",
+        width: "100%",
+        maxWidth: 1200,
+        mx: "auto",
+        mt: { xs: 2, md: 4 },
+        columnGap: 4,
+        rowGap: 2,
+    }}
+>
                     {companies.map(({ name, Icon }) => (
                         <Stack
                             key={name}

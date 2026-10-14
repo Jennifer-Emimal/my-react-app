@@ -32,7 +32,7 @@ function Navbar() {
                 width: "100%",
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 <Box
                     component="nav"
                     aria-label="Main navigation"
@@ -59,7 +59,7 @@ function Navbar() {
                                 display: "grid",
                                 placeItems: "center",
                                 background: (theme) =>
-                                    theme.gradients.tealBlue,
+                                    theme.gradients.PurpleBlue,
                                 boxShadow: (theme) =>
                                     theme.customShadows.button,
                             }}
@@ -236,5 +236,4 @@ function Navbar() {
         </Box>
     );
 }
-
 export default Navbar;

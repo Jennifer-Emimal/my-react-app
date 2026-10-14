@@ -31,10 +31,10 @@ const palette = {
   divider: "#E6ECF3",
 
   accent: {
-    teal: "#20BFA5",
-    blue: "#579FE4",
-    purple: "#9064F7",
-    pink: "#F5A6E6",
+    teal: "#00fdd3",
+    blue: "#0084ff",
+    purple: "#4c00ff",
+    pink: "#ff00d0",
     green: "#37C99A",
     orange: "#FFB45E",
     yellow: "#F5D477",

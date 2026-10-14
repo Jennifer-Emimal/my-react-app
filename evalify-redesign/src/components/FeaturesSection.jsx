@@ -70,7 +70,7 @@ function FeaturesSection() {
         py: { xs: 6, md: 8 },
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         {/* Section heading */}
         <Box
           sx={{
@@ -96,7 +96,7 @@ function FeaturesSection() {
             <Box
               component="span"
               sx={{
-                background: (theme) => theme.gradients.tealBlue,
+                background: (theme) => theme.gradients.PurpleBlue,
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -155,7 +155,7 @@ function FeaturesSection() {
                   sx={{
                     width: 44,
                     height: 44,
-                    borderRadius: "50%",
+                    borderRadius: "25%",
                     display: "grid",
                     placeItems: "center",
                     backgroundColor: background,

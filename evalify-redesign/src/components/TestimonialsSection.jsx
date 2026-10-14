@@ -6,6 +6,9 @@ import {
     Typography,
 } from "@mui/material";
 
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import Divider from "@mui/material/Divider";
+
 import SectionLabel from "./common/SectionLabel";
 
 function TestimonialsSection() {
@@ -14,28 +17,19 @@ function TestimonialsSection() {
             quote: "Evalify has reduced our hiring time by 70%. The quality of candidates is significantly better.",
             name: "Sarah Chen",
             role: "Head of Talent, FintechCo",
-            portraits: [
-                "https://randomuser.me/api/portraits/women/44.jpg",
-                "https://randomuser.me/api/portraits/women/68.jpg",
-            ],
+            portrait: "https://randomuser.me/api/portraits/women/44.jpg",
         },
         {
             quote: "The AI evaluations are incredibly accurate and save us hours of manual screening.",
             name: "James Wilson",
             role: "CTO, StartupX",
-            portraits: [
-                "https://randomuser.me/api/portraits/men/32.jpg",
-                "https://randomuser.me/api/portraits/men/75.jpg",
-            ],
+            portrait: "https://randomuser.me/api/portraits/men/32.jpg",
         },
         {
             quote: "A must-have for any modern recruiting team. Simple, powerful and reliable.",
             name: "Priya Sharma",
             role: "HR Director, SaaSFlow",
-            portraits: [
-                "https://randomuser.me/api/portraits/women/65.jpg",
-                "https://randomuser.me/api/portraits/women/26.jpg",
-            ],
+            portrait: "https://randomuser.me/api/portraits/women/65.jpg",
         },
     ];
 
@@ -48,7 +42,7 @@ function TestimonialsSection() {
                 py: { xs: 6, md: 8 },
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 {/* Section heading */}
                 <Box
                     sx={{
@@ -81,7 +75,7 @@ function TestimonialsSection() {
                             component="span"
                             sx={{
                                 background: (theme) =>
-                                    theme.gradients.tealBlue,
+                                    theme.gradients.PurpleBlue,
                                 backgroundClip: "text",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
@@ -102,7 +96,6 @@ function TestimonialsSection() {
                         },
                         gap: { xs: 2, md: 2.5 },
                         width: "100%",
-                        maxWidth: 1500,
                         mx: "auto",
                     }}
                 >
@@ -110,58 +103,78 @@ function TestimonialsSection() {
                         <Box
                             key={item.name}
                             sx={{
-                                backgroundColor: "background.paper",
+                                bgcolor: "background.paper",
                                 border: 1,
                                 borderColor: "divider",
-                                borderRadius: "14px",
-                                p: { xs: 2.5, md: 2 },
-                                minHeight: { xs: 170, md: 150 },
+                                borderRadius: 3,
+                                p: { xs: 2.5, md: 3 },
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: "column",
                                 boxShadow: (theme) =>
                                     theme.customShadows.card,
                             }}
                         >
+                            {/* Star rating */}
                             <Stack
                                 direction="row"
-                                spacing={1.5}
-                                alignItems="flex-start"
-                                sx={{ width: "100%" }}
+                                spacing={0.3}
+                                sx={{ mb: 2 }}
+                                aria-label="5 out of 5 stars"
                             >
-                                {/* Portrait avatars */}
-                                <Stack spacing={1} flexShrink={0}>
-                                    {item.portraits.map((portrait) => (
-                                        <Avatar
-                                            key={portrait}
-                                            src={portrait}
-                                            alt={`${item.name} testimonial portrait`}
-                                            sx={{
-                                                width: 42,
-                                                height: 42,
-                                            }}
-                                        />
-                                    ))}
-                                </Stack>
-
-                                {/* Testimonial content */}
-                                <Box sx={{ flex: 1, minWidth: 0 }}>
-                                    <Typography
-                                        variant="body2"
+                                {Array.from({ length: 5 }).map((_, index) => (
+                                    <StarRoundedIcon
+                                        key={index}
                                         sx={{
-                                            color: "text.primary",
-                                            fontSize: "0.78rem",
-                                            lineHeight: 1.5,
-                                            mb: 2,
+                                            color: "secondary.main",
+                                            fontSize: 15,
                                         }}
-                                    >
-                                        “{item.quote}”
-                                    </Typography>
+                                    />
+                                ))}
+                            </Stack>
 
+                            {/* Quote */}
+                            <Typography
+                                variant="body1"
+                                sx={{
+                                    color: "text.primary",
+                                    fontWeight: 600,
+                                    lineHeight: 1.55,
+                                    mb: 3,
+                                }}
+                            >
+                                “{item.quote}”
+                            </Typography>
+
+                            {/* Divider */}
+                            <Divider
+                                sx={{
+                                    borderColor: "divider",
+                                    mb: 2,
+                                }}
+                            />
+
+                            {/* Customer details */}
+                            <Stack
+                                direction="row"
+                                alignItems="center"
+                                spacing={1.5}
+                            >
+                                <Avatar
+                                    src={item.portrait}
+                                    alt={item.name}
+                                    sx={{
+                                        width: 40,
+                                        height: 40,
+                                        bgcolor: "background.soft",
+                                        borderRadius: 2,
+                                    }}
+                                />
+
+                                <Box sx={{ minWidth: 0 }}>
                                     <Typography
                                         variant="body2"
                                         sx={{
                                             color: "text.primary",
-                                            fontSize: "0.7rem",
                                             fontWeight: 700,
                                         }}
                                     >
@@ -172,7 +185,7 @@ function TestimonialsSection() {
                                         variant="body2"
                                         sx={{
                                             color: "text.secondary",
-                                            fontSize: "0.62rem",
+                                            fontSize: "0.72rem",
                                             mt: 0.3,
                                         }}
                                     >

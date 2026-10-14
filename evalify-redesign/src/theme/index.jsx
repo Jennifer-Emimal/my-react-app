@@ -18,7 +18,7 @@ const theme = createTheme({
 
   gradients: {
     hero: "linear-gradient(115deg, #F8FAFF 0%, #EDF6FF 55%, #F9F7FF 100%)",
-    tealBlue: "linear-gradient(100deg, #20BFA5 0%, #579FE4 100%)",
+    PurpleBlue: "linear-gradient(100deg, #a200ff 0%, #0084ff 100%)",
     bluePurple: "linear-gradient(110deg, #BDEEFF 0%, #D9D2FF 100%)",
     cta: "linear-gradient(110deg, #DDF4FF 0%, #E8E7FF 100%)",
   },

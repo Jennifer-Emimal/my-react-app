@@ -22,7 +22,7 @@ function HeroSection() {
                 py: { xs: 3, md: 2 },
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 <Box
                     sx={{
                         display: "grid",
@@ -93,7 +93,7 @@ function HeroSection() {
                                 sx={{
                                     display: "block",
                                     background: (theme) =>
-                                        theme.gradients.tealBlue,
+                                        theme.gradients.PurpleBlue,
                                     backgroundClip: "text",
                                     WebkitBackgroundClip: "text",
                                     WebkitTextFillColor: "transparent",
@@ -159,24 +159,30 @@ function HeroSection() {
                         {/* Statistics */}
                         <Box
                             sx={{
-                                display: "grid",
-                                gridTemplateColumns:
-                                    "repeat(3, minmax(0, 1fr))",
-                                gap: { xs: 1.5, sm: 3 },
-                                mt: { xs: 4, md: 5 },
-                                maxWidth: 470,
-                            }}
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    columnGap: { xs: 2, sm: 3 },
+    width: "100%",
+    maxWidth: 400,
+    mt: { xs: 4, md: 5 },
+}}
                         >
                             {stats.map((stat) => (
-                                <Box key={stat.label}>
+                                <Box
+                                    key={stat.label}
+                                    sx={{
+                                        minWidth: 0,
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                    }}
+                                >
                                     <Typography
                                         variant="h3"
                                         sx={{
                                             color: "text.primary",
-                                            fontSize: {
-                                                xs: "1.35rem",
-                                                sm: "1.6rem",
-                                            },
+                                            fontSize: { xs: "1.35rem", sm: "1.6rem" },
+                                            whiteSpace: "nowrap",
                                         }}
                                     >
                                         {stat.value}
@@ -188,6 +194,7 @@ function HeroSection() {
                                             color: "text.secondary",
                                             fontSize: "0.65rem",
                                             mt: 0.4,
+                                            lineHeight: 1.5,
                                         }}
                                     >
                                         {stat.label}
@@ -195,6 +202,7 @@ function HeroSection() {
                                 </Box>
                             ))}
                         </Box>
+
                     </Box>
 
                     {/* Right illustration */}
@@ -218,9 +226,9 @@ function HeroSection() {
                                 height: "auto",
                                 objectFit: "contain",
                                 maskImage:
-                                    "radial-gradient(ellipse at center, black 55%, transparent 100%)",
+                                    "radial-gradient(ellipse at center, black 50%, transparent 100%)",
                                 WebkitMaskImage:
-                                    "radial-gradient(ellipse at center, black 55%, transparent 100%)",
+                                    "radial-gradient(ellipse at center, black 25%, transparent 100%)",
                             }}
                         />
                     </Box>

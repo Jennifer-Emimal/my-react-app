@@ -1,4 +1,4 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, textFieldClasses, Typography } from "@mui/material";
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
@@ -23,7 +23,7 @@ function InterviewShowcaseSection() {
                 overflow: "hidden",
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 <Box
                     sx={{
                         display: "grid",
@@ -38,13 +38,13 @@ function InterviewShowcaseSection() {
                     {/* Left content */}
                     <Box
                         sx={{
-                            maxWidth: 470,
-                            textAlign: { xs: "centre", md: "center" },
+                            maxWidth: 400,
+                            textAlign: { xs: "left", md: "left" },
                         }}
                     >
-                        <SectionLabel>
-                            Powerful AI Interviews
-                        </SectionLabel>
+                        <SectionLabel align="left">
+    Powerful AI Interviews
+</SectionLabel>
 
                         {/* Section heading */}
                         <Typography
@@ -65,7 +65,7 @@ function InterviewShowcaseSection() {
                                 component="span"
                                 sx={{
                                     background: (theme) =>
-                                        theme.gradients.tealBlue,
+                                        theme.gradients.PurpleBlue,
                                     backgroundClip: "text",
                                     WebkitBackgroundClip: "text",
                                     WebkitTextFillColor: "transparent",

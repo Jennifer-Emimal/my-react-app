@@ -81,7 +81,7 @@ function PricingSection() {
             }}
         >
             <Container
-                maxWidth="xl"
+                maxWidth="lg"
                 sx={{
                     display: "flex",
                     flexDirection: "column",
@@ -118,7 +118,7 @@ function PricingSection() {
                             component="span"
                             sx={{
                                 background: (theme) =>
-                                    theme.gradients.tealBlue,
+                                    theme.gradients.PurpleBlue,
                                 backgroundClip: "text",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
@@ -131,19 +131,20 @@ function PricingSection() {
 
                     {/* Billing toggle */}
                     <Box
-                        sx={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: 0.5,
-                            mt: 2,
-                            p: 0.5,
-                            borderRadius: "30px",
-                            backgroundColor: "action.hover",
-                            width: "fit-content",
-                            maxWidth: "100%",
-                        }}
-                    >
+    sx={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        alignSelf: "center",
+        gap: 0.5,
+        mt: 2,
+        p: 0.5,
+        borderRadius: "30px",
+        backgroundColor: "action.hover",
+        width: "fit-content",
+        maxWidth: "100%",
+    }}
+>
                         <Button
                             onClick={() => setYearly(false)}
                             sx={{

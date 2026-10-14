@@ -1,13 +1,13 @@
 
 import { Box, Stack, Typography } from "@mui/material";
 
-function SectionLabel({ children }) {
+function SectionLabel({ children, align = "center" }) {
   return (
     <Box
       sx={{
         width: "100%",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: align === "left" ? "flex-start" : "center",
         mb: 2,
       }}
     >

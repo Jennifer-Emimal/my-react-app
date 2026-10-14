@@ -54,7 +54,7 @@ function HowItWorksSection() {
                 textAlign: "center",
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 {/* Section heading */}
                 <Stack
                     alignItems="center"
@@ -82,7 +82,7 @@ function HowItWorksSection() {
                             component="span"
                             sx={{
                                 background: (theme) =>
-                                    theme.gradients.tealBlue,
+                                    theme.gradients.PurpleBlue,
                                 backgroundClip: "text",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
@@ -143,7 +143,7 @@ function HowItWorksSection() {
                                         height: 46,
                                         display: "grid",
                                         placeItems: "center",
-                                        borderRadius: "50%",
+                                        borderRadius: "25%",
                                         backgroundColor: "background.soft",
                                         color,
                                         mb: 1.5,
