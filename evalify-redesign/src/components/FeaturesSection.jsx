@@ -10,8 +10,7 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import SectionLabel from "./common/SectionLabel";
 import GradientText from "./common/GradientText";
 
-function FeaturesSection() {
-  const features = [
+ const FEATURES = [
     {
       title: "AI question generation",
       description:
@@ -61,6 +60,8 @@ function FeaturesSection() {
       background: "#E8E7FF",
     },
   ];
+
+function FeaturesSection() {
 
   return (
     <Box
@@ -123,10 +124,11 @@ function FeaturesSection() {
             gap: { xs: 2, md: 2.5 },
           }}
         >
-          {features.map(
+          {FEATURES.map(
             ({ title, description, Icon, color, background }) => (
               <Box
                 key={title}
+                className="hover-lift"
                 sx={{
                   backgroundColor: "background.paper",
                   border: 1,
@@ -135,20 +137,15 @@ function FeaturesSection() {
                   p: { xs: 2.5, md: 3 },
                   minHeight: { xs: 175, md: 165 },
                   boxShadow: (theme) => theme.customShadows.card,
-                  transition: "transform 0.2s ease",
-                  "&:hover": {
-                    transform: "translateY(-3px)",
-                  },
                 }}
               >
                 {/* Feature icon */}
                 <Box
+                  className="grid-center"
                   sx={{
                     width: 44,
                     height: 44,
                     borderRadius: "25%",
-                    display: "grid",
-                    placeItems: "center",
                     backgroundColor: background,
                     color,
                     mb: 1.5,

@@ -1,4 +1,3 @@
-
 import BrandLogo from "./BrandLogo";
 import { useState } from "react";
 import {
@@ -14,15 +13,19 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
-function Navbar() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    const navItems = [
+const NAV_ITEMS = [
     { label: "Product", href: "#interview-showcase" },
     { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
     { label: "Resources", href: "#testimonials" },
 ];
+
+function Navbar() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const closeMobileMenu = () => {
+        setMobileMenuOpen(false);
+    };
 
     return (
         <Box
@@ -44,8 +47,8 @@ function Navbar() {
                         gap: 3,
                     }}
                 >
-                   {/* Logo */}
-<BrandLogo />
+                    {/* Logo */}
+                    <BrandLogo />
 
                     {/* Desktop navigation */}
                     <Stack
@@ -56,16 +59,16 @@ function Navbar() {
                             display: { xs: "none", md: "flex" },
                         }}
                     >
-                        {navItems.map((item) => (
-    <Button
-        key={item.label}
-        component="a"
-        href={item.href}
-        variant="nav"
-    >
-        {item.label}
-    </Button>
-))}
+                        {NAV_ITEMS.map((item) => (
+                            <Button
+                                key={item.label}
+                                component="a"
+                                href={item.href}
+                                variant="nav"
+                            >
+                                {item.label}
+                            </Button>
+                        ))}
                     </Stack>
 
                     {/* Desktop actions */}
@@ -74,12 +77,11 @@ function Navbar() {
                         alignItems="center"
                         spacing={1.5}
                         sx={{
-                            display: { xs: "none", sm: "flex" },
+                            display: { xs: "none", md: "flex" },
                             flexShrink: 0,
                         }}
                     >
                         <Button
-                            onClick={() => {}}
                             sx={{
                                 color: "text.secondary",
                                 fontSize: "0.76rem",
@@ -93,14 +95,12 @@ function Navbar() {
                             Sign in
                         </Button>
 
-<Button
-    variant="contained"
-    endIcon={<ArrowForwardIcon />}
-    onClick={() => {}}
->
-    Get started
-</Button>
-
+                        <Button
+                            variant="contained"
+                            endIcon={<ArrowForwardIcon />}
+                        >
+                            Get started
+                        </Button>
                     </Stack>
 
                     {/* Mobile menu button */}
@@ -111,11 +111,12 @@ function Navbar() {
                                 : "Open navigation menu"
                         }
                         aria-expanded={mobileMenuOpen}
+                        aria-controls="mobile-navigation"
                         onClick={() =>
-                            setMobileMenuOpen(!mobileMenuOpen)
+                            setMobileMenuOpen((previous) => !previous)
                         }
                         sx={{
-                            display: { xs: "flex", sm: "none" },
+                            display: { xs: "flex", md: "none" },
                             color: "text.primary",
                         }}
                     >
@@ -128,20 +129,21 @@ function Navbar() {
                 </Box>
 
                 {/* Mobile navigation */}
-                <Collapse in={mobileMenuOpen}>
+                <Collapse in={mobileMenuOpen} unmountOnExit>
                     <Stack
+                        id="mobile-navigation"
                         spacing={1}
                         sx={{
-                            display: { xs: "flex", sm: "none" },
+                            display: { xs: "flex", md: "none" },
                             pb: 2,
                         }}
                     >
-                        {navItems.map((item) => (
+                        {NAV_ITEMS.map((item) => (
                             <Button
                                 key={item.label}
-                                onClick={() =>
-                                    setMobileMenuOpen(false)
-                                }
+                                component="a"
+                                href={item.href}
+                                onClick={closeMobileMenu}
                                 sx={{
                                     justifyContent: "space-between",
                                     color: "text.primary",
@@ -153,9 +155,7 @@ function Navbar() {
                         ))}
 
                         <Button
-                            onClick={() =>
-                                setMobileMenuOpen(false)
-                            }
+                            onClick={closeMobileMenu}
                             sx={{
                                 justifyContent: "flex-start",
                                 color: "text.secondary",
@@ -164,20 +164,21 @@ function Navbar() {
                             Sign in
                         </Button>
 
-                        
-<Button
-    variant="contained"
-    endIcon={<ArrowForwardIcon />}
-    onClick={() => setMobileMenuOpen(false)}
-    sx={{ alignSelf: "flex-start" }}
->
-    Get started
-</Button>
-
+                        <Button
+                            variant="contained"
+                            endIcon={<ArrowForwardIcon />}
+                            onClick={closeMobileMenu}
+                            sx={{
+                                alignSelf: "flex-start",
+                            }}
+                        >
+                            Get started
+                        </Button>
                     </Stack>
                 </Collapse>
             </Container>
         </Box>
     );
 }
+
 export default Navbar;

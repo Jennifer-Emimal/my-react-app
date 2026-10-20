@@ -13,65 +13,66 @@ import CheckIcon from "@mui/icons-material/Check";
 import SectionLabel from "./common/SectionLabel";
 import GradientText from "./common/GradientText";
 
+
+const PLANS = [
+    {
+        name: "Free",
+        description: "Perfect for trying out Evalify",
+        monthly: 0,
+        yearly: 0,
+        features: [
+            "5 AI interviews",
+            "Basic evaluations",
+            "Email support",
+        ],
+        button: "Get started",
+    },
+    {
+        name: "Starter",
+        description: "For small teams",
+        monthly: 49,
+        yearly: 39,
+        features: [
+            "50 AI interviews",
+            "Standard analytics",
+            "ATS integration",
+            "Priority support",
+        ],
+        button: "Get started",
+    },
+    {
+        name: "Pro",
+        description: "For growing teams",
+        monthly: 149,
+        yearly: 119,
+        features: [
+            "250 AI interviews",
+            "Advanced analytics",
+            "Custom questions",
+            "Team collaboration",
+            "Dedicated support",
+        ],
+        button: "Start free trial",
+        popular: true,
+    },
+    {
+        name: "Enterprise",
+        description: "For large organizations",
+        monthly: 299,
+        yearly: 239,
+        features: [
+            "Unlimited interviews",
+            "Custom workflows",
+            "SSO & advanced security",
+            "Dedicated account manager",
+        ],
+        button: "Contact sales",
+    },
+];
+
+
 function PricingSection() {
     const [yearly, setYearly] = useState(false);
-
-    const plans = [
-        {
-            name: "Free",
-            description: "Perfect for trying out Evalify",
-            monthly: 0,
-            yearly: 0,
-            features: [
-                "5 AI interviews",
-                "Basic evaluations",
-                "Email support",
-            ],
-            button: "Get started",
-        },
-        {
-            name: "Starter",
-            description: "For small teams",
-            monthly: 49,
-            yearly: 39,
-            features: [
-                "50 AI interviews",
-                "Standard analytics",
-                "ATS integration",
-                "Priority support",
-            ],
-            button: "Get started",
-        },
-        {
-            name: "Pro",
-            description: "For growing teams",
-            monthly: 149,
-            yearly: 119,
-            features: [
-                "250 AI interviews",
-                "Advanced analytics",
-                "Custom questions",
-                "Team collaboration",
-                "Dedicated support",
-            ],
-            button: "Start free trial",
-            popular: true,
-        },
-        {
-            name: "Enterprise",
-            description: "For large organizations",
-            monthly: 299,
-            yearly: 239,
-            features: [
-                "Unlimited interviews",
-                "Custom workflows",
-                "SSO & advanced security",
-                "Dedicated account manager",
-            ],
-            button: "Contact sales",
-        },
-    ];
-
     return (
         <Box
             id="pricing"
@@ -207,12 +208,10 @@ function PricingSection() {
                         gap: { xs: 2, md: 2.5 },
                         mt: { xs: 4, md: 3.5 },
                         width: "100%",
-                        maxWidth: 1500,
-                        mx: "auto",
-                        alignItems: "stretch",
+alignItems: "stretch",
                     }}
                 >
-                    {plans.map((plan) => (
+                   {PLANS.map((plan) => (
                         <Box
                             key={plan.name}
                             sx={{
@@ -378,3 +377,5 @@ function PricingSection() {
 }
 
 export default PricingSection;
+
+

@@ -10,8 +10,7 @@ import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import SectionLabel from "./common/SectionLabel";
 
-function TrustedCompaniesSection() {
-    const companies = [
+const COMPANIES = [
         { name: "slack", Icon: HubIcon },
         { name: "Notion", Icon: ViewQuiltOutlinedIcon },
         { name: "linear", Icon: CircleOutlinedIcon },
@@ -21,6 +20,8 @@ function TrustedCompaniesSection() {
         { name: "otter.ai", Icon: BubbleChartIcon },
         { name: "webflow", Icon: WaterDropIcon },
     ];
+
+function TrustedCompaniesSection() {
 
     return (
         <Box
@@ -59,7 +60,7 @@ function TrustedCompaniesSection() {
         rowGap: 2,
     }}
 >
-                    {companies.map(({ name, Icon }) => (
+                    {COMPANIES.map(({ name, Icon }) => (
                         <Stack
                             key={name}
                             direction="row"

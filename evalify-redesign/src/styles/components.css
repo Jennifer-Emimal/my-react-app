@@ -1,0 +1,54 @@
+
+.dashboard-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.grid-center {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 16px 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 900px) {
+  .faq-trigger {
+    padding: 18px 0;
+    font-size: 1rem;
+  }
+}
+
+.footer-link {
+  display: block;
+  width: fit-content;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}

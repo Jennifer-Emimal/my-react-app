@@ -8,8 +8,6 @@ function GradientText({ children, sx = {} }) {
       sx={{
         background: (theme) => theme.gradients.PurpleBlue,
         backgroundClip: "text",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
         ...sx,
       }}
     >

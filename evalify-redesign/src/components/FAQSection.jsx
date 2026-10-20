@@ -187,6 +187,7 @@ function FAQSection() {
                                     <Box
                                         component="button"
                                         type="button"
+                                        className="faq-trigger"
                                         onClick={() =>
                                             setOpenIndex(
                                                 isOpen ? -1 : index
@@ -194,24 +195,7 @@ function FAQSection() {
                                         }
                                         aria-expanded={isOpen}
                                         sx={{
-                                            width: "100%",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "space-between",
-                                            gap: 2,
-                                            textAlign: "left",
-                                            border: 0,
-                                            bgcolor: "transparent",
                                             color: "text.primary",
-                                            cursor: "pointer",
-                                            px: 0,
-                                            py: { xs: 2, md: 2.25 },
-                                            fontFamily: "inherit",
-                                            fontSize: {
-                                                xs: "0.85rem",
-                                                md: "1rem",
-                                            },
-                                            fontWeight: 600,
                                             "&:hover": {
                                                 color: "primary.main",
                                             },
@@ -221,12 +205,10 @@ function FAQSection() {
 
                                         <Box
                                             component="span"
+                                            className="grid-center"
                                             sx={{
                                                 width: 40,
                                                 height: 40,
-                                                flexShrink: 0,
-                                                display: "grid",
-                                                placeItems: "center",
                                                 borderRadius: "50%",
                                                 bgcolor: isOpen
                                                     ? "background.accent"

@@ -143,12 +143,10 @@ function FooterSection() {
                     component="a"
                     variant="body2"
                     href={link.href}
+                    className="footer-link"
                     sx={{
-                      width: "fit-content",
                       color: "text.secondary",
                       fontSize: "0.75rem",
-                      textDecoration: "none",
-                      transition: "color 0.2s ease",
                       "&:hover": {
                         color: "primary.main",
                       },

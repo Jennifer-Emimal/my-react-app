@@ -8,13 +8,14 @@ import SectionLabel from "./common/SectionLabel";
 import GradientText from "./common/GradientText";
 import interviewDashboard from "../assets/interview-dashboard.png";
 
+const BENEFITS = [
+    "AI-generated questions",
+    "Real-time speech & code analysis",
+    "Bias-free and consistent evaluations",
+    "Detailed reports & scorecards",
+];
+
 function InterviewShowcaseSection() {
-    const benefits = [
-        "AI-generated questions",
-        "Real-time speech & code analysis",
-        "Bias-free and consistent evaluations",
-        "Detailed reports & scorecards",
-    ];
 
     return (
         <Box
@@ -83,7 +84,7 @@ function InterviewShowcaseSection() {
 
                         {/* Benefits list */}
                         <Stack spacing={1.5} sx={{ mt: 3 }}>
-                            {benefits.map((benefit) => (
+                            {BENEFITS.map((benefit) => (
                                 <Stack
                                     key={benefit}
                                     direction="row"
@@ -136,14 +137,8 @@ function InterviewShowcaseSection() {
                             component="img"
                             src={interviewDashboard}
                             alt="AI video interview with speech analysis and candidate scorecards"
-                            sx={(theme) => ({
-                                display: "block",
-                                width: "100%",
-                                maxWidth: 760,
-                                height: "auto",
-                                objectFit: "contain",
-                                ...theme.customStyles.dashboardImage,
-                            })}
+                            className="dashboard-image"
+                            sx={{ maxWidth: 760 }}
                         />
                     </Box>
                 </Box>

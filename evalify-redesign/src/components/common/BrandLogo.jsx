@@ -10,12 +10,11 @@ function BrandLogo() {
       sx={{ flexShrink: 0 }}
     >
       <Box
+        className="grid-center"
         sx={{
           width: 27,
           height: 27,
           borderRadius: "7px",
-          display: "grid",
-          placeItems: "center",
           background: (theme) => theme.gradients.PurpleBlue,
           boxShadow: (theme) => theme.customShadows.button,
         }}

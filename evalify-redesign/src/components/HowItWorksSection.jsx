@@ -8,8 +8,7 @@ import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import SectionLabel from "./common/SectionLabel";
 import GradientText from "./common/GradientText";
 
-function HowItWorksSection() {
-    const steps = [
+const STEPS = [
         {
             number: "01",
             title: "Create a role",
@@ -44,6 +43,9 @@ function HowItWorksSection() {
         },
     ];
 
+
+function HowItWorksSection() {
+    
     return (
         <Box
             id="how-it-works"
@@ -107,7 +109,7 @@ function HowItWorksSection() {
                         gap: { xs: 2, md: 2.5 },
                     }}
                 >
-                    {steps.map(
+                    {STEPS.map(
                         ({ number, title, description, Icon, color }) => (
                             <Box
                                 key={number}
@@ -128,11 +130,10 @@ function HowItWorksSection() {
                             >
                                 {/* Step icon */}
                                 <Box
+                                    className="grid-center"
                                     sx={{
                                         width: 46,
                                         height: 46,
-                                        display: "grid",
-                                        placeItems: "center",
                                         borderRadius: "25%",
                                         backgroundColor: "background.soft",
                                         color,

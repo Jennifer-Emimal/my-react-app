@@ -12,8 +12,7 @@ import Divider from "@mui/material/Divider";
 import SectionLabel from "./common/SectionLabel";
 import GradientText from "./common/GradientText";
 
-function TestimonialsSection() {
-    const testimonials = [
+const TESTIMONIALS = [
         {
             quote: "Evalify has reduced our hiring time by 70%. The quality of candidates is significantly better.",
             name: "Sarah Chen",
@@ -34,6 +33,8 @@ function TestimonialsSection() {
         },
     ];
 
+function TestimonialsSection() {
+    
     return (
         <Box
             id="testimonials"
@@ -89,7 +90,7 @@ function TestimonialsSection() {
                         mx: "auto",
                     }}
                 >
-                    {testimonials.map((item) => (
+                    {TESTIMONIALS.map((item) => (
                         <Box
                             key={item.name}
                             sx={{

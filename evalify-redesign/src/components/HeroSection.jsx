@@ -1,19 +1,19 @@
 
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import GradientText from "./common/GradientText";
+import HeroCTAButtons from "./common/HeroCTAButtons";
 import heroDashboard from "../assets/hero-dashboard.png";
 
+const STATS = [
+    { value: "70%", label: "Faster hiring" },
+    { value: "4x", label: "More accurate evaluations" },
+    { value: "50+", label: "Skills supported" },
+];
+
 function HeroSection() {
-    const stats = [
-        { value: "70%", label: "Faster hiring" },
-        { value: "4x", label: "More accurate evaluations" },
-        { value: "50+", label: "Skills supported" },
-    ];
 
     return (
         <Box
@@ -23,6 +23,7 @@ function HeroSection() {
                 overflow: "hidden",
                 py: { xs: 5, md: 7 },
             }}
+            
         >
             <Container maxWidth="lg">
                 <Box
@@ -110,32 +111,7 @@ function HeroSection() {
                         </Typography>
 
                         {/* CTA buttons */}
-                        <Stack
-                            direction="row"
-                            flexWrap="wrap"
-                            spacing={1.2}
-                            sx={{ mt: 3 }}
-                        >
-                            <Button
-                                variant="contained"
-                                endIcon={<ArrowForwardIcon />}
-                            >
-                                Start free trial
-                            </Button>
-
-                            <Button
-                                startIcon={<PlayArrowIcon />}
-                                sx={{
-                                    backgroundColor: "background.paper",
-                                    color: "text.primary",
-                                    "&:hover": {
-                                        backgroundColor: "background.soft",
-                                    },
-                                }}
-                            >
-                                Watch demo
-                            </Button>
-                        </Stack>
+                        <HeroCTAButtons />
 
                         {/* Statistics */}
                         <Box
@@ -149,7 +125,7 @@ function HeroSection() {
                                 mt: { xs: 4, md: 5 },
                             }}
                         >
-                            {stats.map((stat) => (
+                            {STATS.map((stat) => (
                                 <Box
                                     key={stat.label}
                                     sx={{
@@ -203,14 +179,8 @@ function HeroSection() {
                             component="img"
                             src={heroDashboard}
                             alt="Evalify AI interview dashboard with video interviews and candidate analytics"
-                            sx={(theme) => ({
-                                display: "block",
-                                width: "100%",
-                                maxWidth: 680,
-                                height: "auto",
-                                objectFit: "contain",
-                                ...theme.customStyles.dashboardImage,
-                            })}
+                            className="dashboard-image"
+                            sx={{ maxWidth: 680 }}
                         />
                     </Box>
                 </Box>

@@ -1,4 +1,3 @@
-
 import { createTheme } from "@mui/material/styles";
 
 import palette from "./palette";
@@ -19,25 +18,13 @@ const theme = createTheme({
   gradients: {
     hero: "linear-gradient(115deg, #F8FAFF 0%, #EDF6FF 55%, #F9F7FF 100%)",
     PurpleBlue: "linear-gradient(100deg, #a200ff 0%, #0084ff 100%)",
-    bluePurple: "linear-gradient(110deg, #BDEEFF 0%, #D9D2FF 100%)",
     cta: "linear-gradient(110deg, #DDF4FF 0%, #E8E7FF 100%)",
   },
 
   customShadows: {
     card: "0 8px 28px rgba(39, 75, 120, 0.07)",
-    floating: "0 18px 50px rgba(51, 91, 145, 0.14)",
     button: "0 5px 15px rgba(7, 49, 58, 0.12)",
   },
-
-  customStyles: {
-  dashboardImage: {
-    maskImage:
-      "radial-gradient(ellipse at center, black 50%, transparent 100%)",
-    WebkitMaskImage:
-      "radial-gradient(ellipse at center, black 50%, transparent 100%)",
-  },
-},
-
 });
 
 export default theme;

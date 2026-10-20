@@ -1,30 +1,30 @@
 
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import TrackChangesOutlinedIcon from "@mui/icons-material/TrackChangesOutlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 
 import ctaDashboard from "./../assets/cta-dashboard.png";
 import GradientText from "./common/GradientText";
+import HeroCTAButtons from "./common/HeroCTAButtons";
+
+const BENEFITS = [
+    {
+        label: "Faster hiring",
+        icon: <BoltOutlinedIcon />,
+    },
+    {
+        label: "More accurate evaluations",
+        icon: <TrackChangesOutlinedIcon />,
+    },
+    {
+        label: "Secure & reliable",
+        icon: <VerifiedUserOutlinedIcon />,
+    },
+];
 
 function CTASection() {
-    const benefits = [
-        {
-            label: "Faster hiring",
-            icon: <BoltOutlinedIcon />,
-        },
-        {
-            label: "More accurate evaluations",
-            icon: <TrackChangesOutlinedIcon />,
-        },
-        {
-            label: "Secure & reliable",
-            icon: <VerifiedUserOutlinedIcon />,
-        },
-    ];
 
     return (
         <Box
@@ -46,8 +46,6 @@ function CTASection() {
                         },
                         alignItems: "center",
                         gap: { xs: 4, md: 2 },
-                        maxWidth: 1500,
-                        mx: "auto",
                     }}
                 >
                     {/* Left content */}
@@ -126,32 +124,7 @@ function CTASection() {
                         </Typography>
 
                         {/* CTA buttons */}
-                        <Stack
-                            direction="row"
-                            flexWrap="wrap"
-                            spacing={1.2}
-                            sx={{ mt: 3 }}
-                        >
-                            <Button
-                                variant="contained"
-                                endIcon={<ArrowForwardIcon />}
-                            >
-                                Start free trial
-                            </Button>
-
-                            <Button
-                                startIcon={<PlayArrowIcon />}
-                                sx={{
-                                    backgroundColor: "background.paper",
-                                    color: "text.primary",
-                                    "&:hover": {
-                                        backgroundColor: "background.soft",
-                                    },
-                                }}
-                            >
-                                Watch demo
-                            </Button>
-                        </Stack>
+                        <HeroCTAButtons />
 
                         {/* Benefits */}
                         <Stack
@@ -164,7 +137,7 @@ function CTASection() {
                                 columnGap: { xs: 2, md: 0 },
                             }}
                         >
-                            {benefits.map((benefit, index) => (
+                            {BENEFITS.map((benefit, index) => (
                                 <Box
                                     key={benefit.label}
                                     sx={{
@@ -177,7 +150,7 @@ function CTASection() {
                                         borderRight: {
                                             xs: "none",
                                             md:
-                                                index !== benefits.length - 1
+                                                index !== BENEFITS.length - 1
                                                     ? "1px solid"
                                                     : "none",
                                         },
@@ -221,14 +194,8 @@ function CTASection() {
                             component="img"
                             src={ctaDashboard}
                             alt="Evalify hiring dashboard illustration"
-                            sx={(theme) => ({
-                                display: "block",
-                                width: "100%",
-                                maxWidth: 800,
-                                height: "auto",
-                                objectFit: "contain",
-                                ...theme.customStyles.dashboardImage,
-                            })}
+                            className="dashboard-image"
+                            sx={{ maxWidth: 800 }}
                         />
                     </Box>
                 </Box>

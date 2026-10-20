@@ -1,19 +1,4 @@
 const components = {
-    MuiCssBaseline: {
-        styleOverrides: {
-            "*": {
-                boxSizing: "border-box",
-            },
-            html: {
-                scrollBehavior: "smooth",
-            },
-            body: {
-                margin: 0,
-                backgroundColor: "#F7F9FD",
-            },
-        },
-    },
-
     MuiButton: {
         defaultProps: {
             disableElevation: true,
@@ -75,20 +60,20 @@ const components = {
 
             // Shared secondary button
             {
-    props: { variant: "outlined" },
-    style: ({ theme }) => ({
-        backgroundColor: "#FFFFFF",
-        color: theme.palette.text.primary,
-        borderColor: "transparent",
-        boxShadow: "none",
+                props: { variant: "outlined" },
+                style: ({ theme }) => ({
+                    backgroundColor: "#FFFFFF",
+                    color: theme.palette.text.primary,
+                    borderColor: "transparent",
+                    boxShadow: "none",
 
-        "&:hover": {
-            backgroundColor: "#FFFFFF",
-            borderColor: "transparent",
-            boxShadow: "none",
-        },
-    }),
-},
+                    "&:hover": {
+                        backgroundColor: "#FFFFFF",
+                        borderColor: "transparent",
+                        boxShadow: "none",
+                    },
+                }),
+            },
         ],
     },
 
